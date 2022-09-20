@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tank.TankTypeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bghud4">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="150sp"
+            android:layout_centerInParent="true">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:columnCount="3"
+                        android:rowCount="1">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="400dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@android:color/transparent"
+                            app:cardCornerRadius="50sp">
+
+                            <RelativeLayout
+                                android:id="@+id/classic_lo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bghud5">
+
+                                <com.gamecentre.tankbattle.tank.TankTextView
+                                    android:id="@+id/classic"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="CLASSIC"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="30sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="400dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@android:color/transparent"
+                            app:cardCornerRadius="50sp">
+
+                            <RelativeLayout
+                                android:id="@+id/arcade_lo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bghud5">
+
+                                <com.gamecentre.tankbattle.tank.TankTextView
+                                    android:id="@+id/arcade"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="CAMPAIGN"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="30sp"
+                                    android:textStyle="bold" />
+
+                                <com.gamecentre.tankbattle.tank.TankTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:text="Coming soon!"
+                                    android:textColor="@color/green"
+                                    android:textSize="15sp"
+                                    android:layout_marginBottom="20dp"
+                                    android:layout_centerHorizontal="true"/>
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+<!--                        <androidx.cardview.widget.CardView-->
+<!--                            android:layout_width="400dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_marginStart="20dp"-->
+<!--                            android:layout_marginTop="20dp"-->
+<!--                            android:layout_marginEnd="20dp"-->
+<!--                            android:layout_marginBottom="20dp"-->
+<!--                            android:background="@android:color/transparent"-->
+<!--                            app:cardCornerRadius="50sp">-->
+
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/construct_lo"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:background="@drawable/bghud5">-->
+
+<!--                                <tankbattleank.TankTextView-->
+<!--                                    android:id="@+id/construct"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_centerInParent="true"-->
+<!--                                    android:text="CONSTRUCTION"-->
+<!--                                    android:textAlignment="center"-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:textSize="30sp"-->
+<!--                                    android:textStyle="bold" />-->
+<!--                            </RelativeLayout>-->
+
+<!--                        </androidx.cardview.widget.CardView>-->
+                    </GridLayout>
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/settingsBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/settings2"
+        android:alpha="0.8"/>
+
+</RelativeLayout>

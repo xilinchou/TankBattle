@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">Tank Battle</string>
+    <string name="paused">P A U S E D</string>
+
+    <string name="one_player">One player</string>
+    <string name="two_players">Two players</string>
+    <string name="no_players">No players</string>
+
+    <string name="preferences">Preferences</string>
+
+    <string name="new_game">New game</string>
+    <string name="red_wins">A winner is Red!</string>
+    <string name="blue_wins">A winner is Blue!</string>
+
+    <string name="join_in">Touch to join in!</string>
+    <string name="pause">Pause</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="game_over">GAME\nOVER</string>
+    <string name="hi_score_txt">HI-SCORE</string>
+    <string name="player2_txt">II-PLAYER</string>
+    <string name="player1_txt">I-PLAYER</string>
+    <string name="pts">PTS</string>
+    <string name="nextTxt">Next &gt;&gt;</string>
+    <string name="retryTxt">Retry &gt;&gt;</string>
+    <string name="menuTxt">&lt;&lt; Menu</string>
+    <string name="pauseTxt">PAUSE</string>
+    <string name="end_gameTxt">END GAME</string>
+    <string name="continueTxt">PLAY</string>
+    <string name="enable_sound_txt">Enable Sound</string>
+    <string name="enable_vibration_txt">Enable Vibration</string>
+    <string name="save_txt">Save</string>
+    <string name="cancel_txt">Cancel</string>
+    <string name="invite_def_txt">Invite a player</string>
+
+    <string name="more_coins_text" translatable="false">Watch Ad for %d %s.</string>
+    <string name="video_starting_in_text" translatable="false">Ad starts in %d…</string>
+    <string name="negative_button_text" translatable="false">No, thanks</string>
+
+
+    <string name="starboat_gold">x5</string>
+    <string name="clockshovel_gold">x5</string>
+    <string name="gunhelmet_gold">x5</string>
+    <string name="tankgrenade_gold">x5</string>
+    <string name="mine_gold">x5</string>
+    <string name="game_gold">x10</string>
+    <string name="game3_gold">x20</string>
+    <string name="game6h_gold">x30</string>
+    <string name="adCoin">x20</string>
+    <string name="vidGold">5</string>
+    <string name="adCoin_bonus">2</string>
+
+
+    <string name="starboat_count">x2</string>
+    <string name="clockshovel_count">x2</string>
+    <string name="gunhelmet_count">x2</string>
+    <string name="tankgrenade_count">x2</string>
+    <string name="mine_count">x2</string>
+    <string name="game_count">x1</string>
+    <string name="game6h_count">x1</string>
+    <string name="adGold_count">x10</string>
+
+    <string name="gold_cost">$0.99</string>
+    <string name="goldbar_count">x200</string>
+    <string name="retryGoldAmnt">x2</string>
+    <string name="retryWatchAmnt">x1</string>
+    <string name="playOnGoldCost">x10</string>
+
+    <string name="adGameAmnt">+1</string>
+    <string name="game15Amnt">+3</string>
+    <string name="game30Time">6h</string>
+    <string name="game15Cost">x15</string>
+    <string name="game30Cost">x30</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

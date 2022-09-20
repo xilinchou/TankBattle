@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/drawable/curve_shape.xml" value="0.2215" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/drawable/ic_launcher_background.xml" value="0.213" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/act_title.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_confetti.xml" value="0.1484375" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_main.xml" value="0.13405797101449277" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_menu.xml" value="0.13405797101449277" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_number_puzz_level.xml" value="0.2" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_number_puzzle.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_number_puzzle_3.xml" value="0.1" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_number_puzzle_4.xml" value="0.264" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_number_puzzle_5.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_number_puzzle_6.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_ping_pong.xml" value="0.1484375" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_ping_pong_menu.xml" value="0.264" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_pong_menu.xml" value="0.264" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_settings.xml" value="0.16744186046511628" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/activity_wifi.xml" value="0.19990933816863102" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/curve_shape.xml" value="0.19410004275331338" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/peers_list_view.xml" value="0.1" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/pong_view.xml" value="0.1" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/settings_activity.xml" value="0.1" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/layout/settings_layout.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/menu/game_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/xml/preferences.xml" value="0.2" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/ClassicGames/app/src/main/res/xml/root_preferences.xml" value="0.2033514492753623" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/Classic_games/app/src/main/res/layout/activity_menu.xml" value="0.2056434373663959" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/Classic_games/app/src/main/res/layout/activity_number_puzz_level.xml" value="0.1" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/Classic_games/app/src/main/res/layout/activity_tank.xml" value="0.2" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/Classic_games/app/src/main/res/layout/pong_view.xml" value="0.2056434373663959" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/Classic_games_View/app/src/main/res/layout/activity_number_puzzle_3.xml" value="0.2056434373663959" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/Classic_games_View/app/src/main/res/layout/activity_tank.xml" value="0.1" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/Classic_games_View/app/src/main/res/layout/activity_tank_menu.xml" value="0.6" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/Classic_games_View/app/src/main/res/layout/activity_wifi.xml" value="0.2056434373663959" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_main.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_menu.xml" value="0.2056434373663959" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_number_puzzle_3.xml" value="0.1333903377511757" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_players.xml" value="0.38125" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_pong_menu.xml" value="0.10004275331338179" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_settings.xml" value="0.14959202175883954" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank.xml" value="0.2" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_daily_reward.xml" value="0.264" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_end_game.xml" value="0.264" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_into.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_intro.xml" value="0.4" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_load.xml" value="0.38125" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_menu.xml" value="0.1" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_pause_game.xml" value="0.2056434373663959" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_players.xml" value="0.38125" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_purchase.xml" value="0.2" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_purchase_game.xml" value="0.264" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_retry_game.xml" value="0.2" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_save.xml" value="0.38125" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_settings.xml" value="0.264" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_tank_type.xml" value="0.17142857142857143" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/activity_wifi.xml" value="0.2" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/dialog_ad.xml" value="0.18432971014492755" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/fragment_construction.xml" value="0.24723247232472326" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/fragment_tank_stage.xml" value="0.264" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/fragment_tank_stage2.xml" value="0.22265625" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/peers_list_view.xml" value="0.38125" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/reward.xml" value="0.1631912964641886" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/save_list_view.xml" value="0.38125" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/stages.xml" value="0.264" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/tank_stages.xml" value="0.4" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/layout/tank_stages2.xml" value="0.22265625" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1675" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/xml/root_preferences.xml" value="0.1" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/layout/activity_settings.xml" value="0.16394927536231885" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/layout/activity_tank_end_game.xml" value="0.10925925925925926" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/layout/activity_tank_purchase.xml" value="0.1" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/menu/game_menu.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
