@@ -889,7 +889,7 @@
             android:layout_height="70dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
             android:gravity="center"
             android:orientation="vertical">
@@ -956,630 +956,271 @@
             android:background="@drawable/next_btn" />
 
         <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="@string/hi_score_txt"
-                        android:textAlignment="center"
-                        android:textColor="@color/brick_red"
-                        android:textSize="8sp"
-                        android:textStyle="bold" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/HiScore"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="20000"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/brick_brown"
-                        android:textSize="8sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="STAGE"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="8sp"
-                        android:textStyle="bold" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/StageScore"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="2"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="8sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="80dp"
-                        android:layout_weight="1"
-                        android:text="@string/player1_txt"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/brick_red"
-                        android:textSize="8sp"
-                        android:textStyle="bold" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="70dp"
-                        android:layout_weight="1"
-                        android:text="@string/player2_txt"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/brick_red"
-                        android:textSize="8sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/P1Score"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="90dp"
-                        android:layout_weight="1"
-                        android:text="16000"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/brick_brown"
-                        android:textSize="8sp"
-                        android:textStyle="bold" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/P2Score"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="80dp"
-                        android:layout_weight="1"
-                        android:text="16000"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/brick_brown"
-                        android:textSize="8sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyAScoreP1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="9dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="3"
-                        android:text="1600"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="2.5"
-                        android:text="@string/pts"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyACountP1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="9dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1.5"
-                        android:text="20"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/left_ptr" />
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:background="@drawable/enemy_a" />
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/right_ptr" />
-
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyACountP2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="1.5"
-                        android:text="20"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyAScoreP2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="3"
-                        android:text="1600"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="2.5"
-                        android:text="@string/pts"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyBScoreP1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="9dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="3"
-                        android:text="1600"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="2.5"
-                        android:text="@string/pts"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyBCountP1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="9dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1.5"
-                        android:text="20"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/left_ptr" />
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:background="@drawable/enemy_b" />
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/right_ptr" />
-
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyBCountP2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="1.5"
-                        android:text="20"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyBScoreP2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="3"
-                        android:text="1600"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="2.5"
-                        android:text="@string/pts"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyCScoreP1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="9dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="3"
-                        android:text="1600"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="2.5"
-                        android:text="@string/pts"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyCCountP1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="9dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1.5"
-                        android:text="20"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/left_ptr" />
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:background="@drawable/enemy_c" />
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/right_ptr" />
-
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyCCountP2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="1.5"
-                        android:text="20"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyCScoreP2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="3"
-                        android:text="1600"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="2.5"
-                        android:text="@string/pts"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyDScoreP1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="9dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="3"
-                        android:text="1600"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="2.5"
-                        android:text="@string/pts"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyDCountP1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="9dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1.5"
-                        android:text="20"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/left_ptr" />
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:background="@drawable/enemy_d" />
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/right_ptr" />
-
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyDCountP2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="1.5"
-                        android:text="20"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:id="@+id/enemyDScoreP2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="3"
-                        android:text="1600"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <com.gamecentre.tankbattle.tank.TankTextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_weight="2.5"
-                        android:text="@string/pts"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="10dp"
-                        android:layout_weight="1">
-
-                        <com.gamecentre.tankbattle.tank.TankTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:text="TOTAL"
-                            android:textAlignment="viewEnd"
-                            android:textColor="@color/white"
-                            android:textSize="9sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
                         android:layout_gravity="center"
-                        android:layout_weight="2.5"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_marginEnd="95dp"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                            <ImageView
+                            <com.gamecentre.tankbattle.tank.TankTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/eq_line" />
+                                android:layout_weight="1"
+                                android:text="@string/hi_score_txt"
+                                android:textAlignment="center"
+                                android:textColor="@color/brick_red"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/HiScore"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="20000"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/brick_brown"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="STAGE"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/StageScore"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="2"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="80dp"
+                                android:layout_weight="1"
+                                android:text="@string/player1_txt"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/brick_red"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="70dp"
+                                android:layout_weight="1"
+                                android:text="@string/player2_txt"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/brick_red"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/P1Score"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="90dp"
+                                android:layout_weight="1"
+                                android:text="16000"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/brick_brown"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/P2Score"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="80dp"
+                                android:layout_weight="1"
+                                android:text="16000"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/brick_brown"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyAScoreP1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="9dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="3"
+                                android:text="1600"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="2.5"
+                                android:text="@string/pts"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyACountP1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="9dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1.5"
+                                android:text="20"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/left_ptr" />
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:background="@drawable/enemy_a" />
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/right_ptr" />
+
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyACountP2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="1.5"
+                                android:text="20"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyAScoreP2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="3"
+                                android:text="1600"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="2.5"
+                                android:text="@string/pts"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
 
                         </LinearLayout>
 
@@ -1588,38 +1229,576 @@
                             android:layout_height="0dp"
                             android:layout_gravity="center"
                             android:layout_marginTop="5dp"
-                            android:layout_weight="4"
+                            android:layout_weight="1"
                             android:orientation="horizontal">
 
                             <com.gamecentre.tankbattle.tank.TankTextView
-                                android:id="@+id/totalCountP1"
+                                android:id="@+id/enemyBScoreP1"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:text="15"
+                                android:layout_marginTop="9dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="3"
+                                android:text="1600"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="2.5"
+                                android:text="@string/pts"
                                 android:textAlignment="viewStart"
                                 android:textColor="@color/white"
                                 android:textSize="9sp" />
 
                             <com.gamecentre.tankbattle.tank.TankTextView
-                                android:id="@+id/totalCountP2"
+                                android:id="@+id/enemyBCountP1"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginEnd="100dp"
-                                android:layout_weight="1.3"
-                                android:text="15"
+                                android:layout_marginTop="9dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1.5"
+                                android:text="20"
                                 android:textAlignment="viewEnd"
                                 android:textColor="@color/white"
                                 android:textSize="9sp" />
 
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/left_ptr" />
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:background="@drawable/enemy_b" />
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/right_ptr" />
+
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyBCountP2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="1.5"
+                                android:text="20"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyBScoreP2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="3"
+                                android:text="1600"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="2.5"
+                                android:text="@string/pts"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyCScoreP1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="9dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="3"
+                                android:text="1600"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="2.5"
+                                android:text="@string/pts"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyCCountP1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="9dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1.5"
+                                android:text="20"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/left_ptr" />
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:background="@drawable/enemy_c" />
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/right_ptr" />
+
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyCCountP2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="1.5"
+                                android:text="20"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyCScoreP2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="3"
+                                android:text="1600"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="2.5"
+                                android:text="@string/pts"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyDScoreP1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="9dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="3"
+                                android:text="1600"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="2.5"
+                                android:text="@string/pts"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyDCountP1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="9dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1.5"
+                                android:text="20"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/left_ptr" />
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:background="@drawable/enemy_d" />
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/right_ptr" />
+
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyDCountP2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="1.5"
+                                android:text="20"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:id="@+id/enemyDScoreP2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="3"
+                                android:text="1600"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <com.gamecentre.tankbattle.tank.TankTextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_weight="2.5"
+                                android:text="@string/pts"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1">
+
+                                <com.gamecentre.tankbattle.tank.TankTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:text="TOTAL"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="@color/white"
+                                    android:textSize="9sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="2.5"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_marginEnd="95dp"
+                                    android:layout_weight="1">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/eq_line" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="4"
+                                    android:orientation="horizontal">
+
+                                    <com.gamecentre.tankbattle.tank.TankTextView
+                                        android:id="@+id/totalCountP1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:text="15"
+                                        android:textAlignment="viewStart"
+                                        android:textColor="@color/white"
+                                        android:textSize="9sp" />
+
+                                    <com.gamecentre.tankbattle.tank.TankTextView
+                                        android:id="@+id/totalCountP2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="100dp"
+                                        android:layout_weight="1.3"
+                                        android:text="15"
+                                        android:textAlignment="viewEnd"
+                                        android:textColor="@color/white"
+                                        android:textSize="9sp" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <com.gamecentre.tankbattle.tank.TankTextView
+                    android:id="@+id/scoreViewChallenge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="CHALLENGES 1/11"
+                    android:textColor="@color/brick_brown"
+                    android:textSize="12sp" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@+id/scoreViewChallenge"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/challengeItems"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj1"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj2"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj3"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj4"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj5"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj6"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj7"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj8"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj9"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj10"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                        <com.gamecentre.tankbattle.tank.TankTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/obj11"
+                            android:textColor="@color/white"
+                            android:textSize="8sp" />
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+
+            </RelativeLayout>
 
         </LinearLayout>
 

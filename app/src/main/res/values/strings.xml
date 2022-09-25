@@ -87,4 +87,15 @@
     <string name="game30Cost">x30</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="obj1">Finish without getting a hit</string>
+    <string name="obj2">Shoot down 3 enemies in 10 seconds</string>
+    <string name="obj3">Shoot down 5 enemies in 10 seconds</string>
+    <string name="obj4">Finish without collecting bonus</string>
+    <string name="obj5">Finish within 2 minutes</string>
+    <string name="obj6">Destroy all bricks, stones and bushes</string>
+    <string name="obj7">Find the gold</string>
+    <string name="obj8">Intercept 30 bullets from enemy</string>
+    <string name="obj9">Avoid a hit on your castle</string>
+    <string name="obj10">Finish without hiting the wall</string>
+    <string name="obj11">Earn 6000 points</string>
 </resources>

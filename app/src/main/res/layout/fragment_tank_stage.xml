@@ -181,7 +181,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Finish without getting a hit"
+                                        android:text="@string/obj1"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 
@@ -280,7 +280,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Shoot down 3 enemies in 10 seconds"
+                                        android:text="@string/obj2"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 
@@ -379,7 +379,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Shoot down 5 enemies in 10 seconds"
+                                        android:text="@string/obj3"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 
@@ -478,7 +478,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Finish without collecting bonus"
+                                        android:text="@string/obj4"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 
@@ -577,7 +577,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Finish within 2 minutes"
+                                        android:text="@string/obj5"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 
@@ -676,7 +676,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Destroy all bricks, stones and bushes"
+                                        android:text="@string/obj6"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 
@@ -775,7 +775,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Find the gold"
+                                        android:text="@string/obj7"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 
@@ -874,7 +874,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Intercept 30 bullets from enemy"
+                                        android:text="@string/obj8"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 
@@ -973,7 +973,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Avoid a hit on your castle"
+                                        android:text="@string/obj9"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 
@@ -1072,7 +1072,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Finish without hiting the wall"
+                                        android:text="@string/obj10"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 
@@ -1171,7 +1171,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1"
                                         android:gravity="center_vertical"
-                                        android:text="Earn 6000 points"
+                                        android:text="@string/obj11"
                                         android:textSize="6sp"
                                         android:textColor="@color/white"/>
 

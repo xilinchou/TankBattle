@@ -71,10 +71,11 @@
         <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1675" />
         <entry key="..\:/Users/enebusei/AndroidStudioProjects/GameCentre/app/src/main/res/xml/root_preferences.xml" value="0.1" />
         <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/layout/activity_settings.xml" value="0.16394927536231885" />
-        <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/layout/activity_tank.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/layout/activity_tank.xml" value="0.10400000000000001" />
         <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/layout/activity_tank_end_game.xml" value="0.10925925925925926" />
         <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/layout/activity_tank_menu.xml" value="0.13958333333333334" />
         <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/layout/activity_tank_purchase.xml" value="0.1" />
+        <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/layout/fragment_tank_stage.xml" value="0.1515625" />
         <entry key="..\:/Users/enebusei/AndroidStudioProjects/TankBattle/app/src/main/res/menu/game_menu.xml" value="0.25416666666666665" />
       </map>
     </option>

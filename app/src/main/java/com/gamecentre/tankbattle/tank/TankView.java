@@ -1085,6 +1085,9 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
                 ((TankActivity) context).p1Score.setText(String.valueOf(P2.totalScore += P2.stageScore));
             }
 
+            int completedObjectives = getCompletedObjectives(level);
+            ((TankActivity) context).displyObjectives(completedObjectives, objectives.get(level-1));
+
             ((TankActivity) context).scoreView.setVisibility(View.VISIBLE);
 
             showingScore = true;

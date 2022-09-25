@@ -2,6 +2,7 @@ package com.gamecentre.tankbattle.tank;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.annotation.SuppressLint;
@@ -67,6 +68,8 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
     public TankTextView curtainTxt,gameOverTxt;
 
     public RelativeLayout scoreView,gameView,navView, shootAlign, bombAlign;
+    private LinearLayout challengeItem;
+    private TankTextView challengeCount;
     public TankTextView bmbText, retryCount, retryGameTmr, hiScore, stageScore, p1Score, p2Score;
     public TankTextView p1AScore, p1BScore, p1CScore, p1DScore;
     public TankTextView p2AScore, p2BScore, p2CScore, p2DScore;
@@ -434,6 +437,9 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
         gameStars = findViewById(R.id.gameStars);
         gameImg = findViewById(R.id.retryGameImg);
 
+        challengeItem = findViewById(R.id.challengeItems);
+        challengeCount = findViewById(R.id.scoreViewChallenge);
+
         scoreView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -474,6 +480,18 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
                 gameTimeView.setText(sdf.format(playtime));
             }
         });
+    }
+
+    public void displyObjectives(int completed, boolean[] objectives) {
+        challengeCount.setText(String.format(Locale.ENGLISH,"CHALLENGES %d/11",completed));
+        for(int obj = 0; obj < TankView.NUM_OBJECTIVES; obj++) {
+            if(objectives[obj]) {
+                ((TankTextView)challengeItem.getChildAt(obj)).setTextColor(this.getResources().getColor(R.color.green));
+            }
+            else {
+                ((TankTextView)challengeItem.getChildAt(obj)).setTextColor(this.getResources().getColor(R.color.white));
+            }
+        }
     }
 
 
