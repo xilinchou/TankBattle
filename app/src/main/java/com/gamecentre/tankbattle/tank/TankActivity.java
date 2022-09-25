@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -69,6 +70,7 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
 
     public RelativeLayout scoreView,gameView,navView, shootAlign, bombAlign;
     private LinearLayout challengeItem;
+    private ScrollView challengeScroll;
     private TankTextView challengeCount;
     public TankTextView bmbText, retryCount, retryGameTmr, hiScore, stageScore, p1Score, p2Score;
     public TankTextView p1AScore, p1BScore, p1CScore, p1DScore;
@@ -439,6 +441,15 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
 
         challengeItem = findViewById(R.id.challengeItems);
         challengeCount = findViewById(R.id.scoreViewChallenge);
+        challengeScroll = findViewById(R.id.challengeScroll);
+        if(TankView.CONSTRUCTION) {
+            challengeScroll.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    return true;
+                }
+            });
+        }
 
         scoreView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -484,12 +495,21 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
 
     public void displyObjectives(int completed, boolean[] objectives) {
         challengeCount.setText(String.format(Locale.ENGLISH,"CHALLENGES %d/11",completed));
+        if(TankView.CONSTRUCTION) {
+            challengeCount.setAlpha(0.4f);
+            challengeItem.setAlpha(0.4f);
+//            challengeScroll.setEnabled(false);
+        }
+        else {
+            challengeCount.setAlpha(1f);
+            challengeItem.setAlpha(1f);
+//            challengeScroll.setEnabled(true);
+        }
         for(int obj = 0; obj < TankView.NUM_OBJECTIVES; obj++) {
-            if(objectives[obj]) {
-                ((TankTextView)challengeItem.getChildAt(obj)).setTextColor(this.getResources().getColor(R.color.green));
-            }
-            else {
-                ((TankTextView)challengeItem.getChildAt(obj)).setTextColor(this.getResources().getColor(R.color.white));
+            if (objectives[obj]) {
+                ((TankTextView) challengeItem.getChildAt(obj)).setTextColor(this.getResources().getColor(R.color.green));
+            } else {
+                ((TankTextView) challengeItem.getChildAt(obj)).setTextColor(this.getResources().getColor(R.color.white));
             }
         }
     }
@@ -528,17 +548,6 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
     public boolean onTouch(View view, MotionEvent motionEvent) {
         MessageRegister.getInstance().registerButtonAction(view, motionEvent);
         return false;
-    }
-
-    protected void onResume() {
-        super.onResume();
-        mTankView.resume();
-//        if(twoPlayers) {
-////            WifiDirectManager.getInstance().registerBReceiver();
-//        }
-//        if(mTankView.isStarted() || !twoPlayers) {
-//            mTankView.resume();
-//        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -825,6 +834,7 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
 
     protected void onStop() {
         super.onStop();
+        SoundManager.pauseGameSounds();
         mTankView.stop();
     }
 
@@ -841,13 +851,19 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
         Log.d("TANKACTIVITY", "Activity destroyed");
     }
 
-    @Override
+
     protected void onPause() {
         super.onPause();
-//        if(twoPlayers) {
-//            WifiDirectManager.getInstance().unregisterBReceiver();
-//        }
+        SoundManager.pauseGameSounds();
     }
+
+    protected void onResume() {
+        super.onResume();
+        SoundManager.resumeGameSounds();
+        mTankView.resume();
+    }
+
+
 
     public void loadInterstitialAd() {
         AdRequest adRequest = new AdRequest.Builder().build();

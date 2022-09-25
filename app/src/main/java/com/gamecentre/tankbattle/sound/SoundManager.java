@@ -75,7 +75,7 @@ public class SoundManager
             streamVolume = streamVolume / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
             int stremID = mSoundPool.play(mSoundPoolMap.get(index), streamVolume, streamVolume, 1, 0, 1);
             streamIDs.set(index,stremID);
-            activeSounds.set(index,true);
+//            activeSounds.set(index,true);
         }
     }
 
@@ -87,7 +87,7 @@ public class SoundManager
             streamVolume = streamVolume / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
             int streamID = mSoundPool.play(mSoundPoolMap.get(index), streamVolume*volume, streamVolume*volume, priority, 0, 1);
             streamIDs.set(index,streamID);
-            activeSounds.set(index,true);
+//            activeSounds.set(index,true);
         }
     }
 
@@ -134,13 +134,16 @@ public class SoundManager
         }
     }
 
-    public static void resumeSounds() {
+    public static void resumeGameSounds() {
+        Log.d("RESUME", "Resuming game sound");
         if(!playSound) {
             return;
         }
-        for (int soundIndex : mSoundPoolMap.values())
+        for(int i = 0; i < activeSounds.size(); i++)
         {
-            mSoundPool.resume(soundIndex);
+            if(activeSounds.get(i)) {
+                mSoundPool.resume(streamIDs.get(i));
+            }
         }
     }
 
@@ -159,6 +162,7 @@ public class SoundManager
     }
 
     public static void pauseGameSounds() {
+        Log.d("PAUSE", "Pausing game sound");
         for(int i = 0; i < streamIDs.size(); i++) {
             if(activeSounds.get(i)) {
                 mSoundPool.pause(streamIDs.get(i));
@@ -188,7 +192,7 @@ public class SoundManager
         activeSounds.set(index,false);
     }
 
-    public static void stopSounds()
+    public static void stopGameSounds()
     {
         for(int i = 0; i < streamIDs.size(); i++) {
             if(activeSounds.get(i)) {

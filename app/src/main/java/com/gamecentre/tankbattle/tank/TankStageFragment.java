@@ -238,6 +238,7 @@ public class TankStageFragment extends Fragment implements View.OnTouchListener,
                         }
 
                         TankView.level = level;
+                        TankView.CONSTRUCTION = false;
                         //TODO
 //                        long game6h = settings.getLong(TankActivity.LIFE_TIME_6H,0);
                         if(game6h < System.currentTimeMillis()) {

@@ -206,6 +206,17 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
         super.onResume();
         opened = true;
         SoundManager.playSound(Sounds.TANK.GAME_BACKGROUND,true);
+        SoundManager.resumeGameSounds();
+    }
+
+    protected void onStop() {
+        super.onStop();
+        SoundManager.pauseGameSounds();
+    }
+
+    protected void onPause() {
+        super.onPause();
+        SoundManager.pauseGameSounds();
     }
 
 
@@ -394,6 +405,7 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
                     public boolean onTouch(View v, MotionEvent m) {
                         if(m.getAction() == MotionEvent.ACTION_DOWN) {
                             SoundManager.playSound(Sounds.TANK.CLICK);
+                            SoundManager.stopGameSounds();
                             Intent i = new Intent(TankMenuActivity.this, TankTypeActivity.class);
                             TankMenuActivity.this.startActivity(i);
                             TankMenuActivity.this.finish();

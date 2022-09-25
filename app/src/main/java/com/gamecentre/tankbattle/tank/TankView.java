@@ -1065,7 +1065,7 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
         }
         if(!showingScore) {
             //First time
-            SoundManager.stopSounds();
+            SoundManager.stopGameSounds();
             //TODO why is retry count default 3 here?
             int retries = ((TankActivity)context).settings.getInt(TankActivity.RETRY_COUNT,3);
 
@@ -1934,8 +1934,8 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
                 } else if (CHECKING_RETRY == 4) {
                     // Did not get new life
                     CHECKING_RETRY = 0;
-                    SoundManager.stopSounds();
-                    pauseNoAds();
+                    SoundManager.stopGameSounds();
+//                    pauseNoAds();
                     TankView.EVENT = TankView.GAME_OVER;
                     sendPlayerInfo(GAME_OVER);
                     doGameOver();
@@ -2153,7 +2153,7 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
     }
 
     public void doGameOver() {
-        SoundManager.stopSounds();
+        SoundManager.stopGameSounds();
 //        try{SoundManager.stopSound(SCENE_SOUND);}
 //        catch (Exception e){}
 //        try{SoundManager.stopSound(Sounds.TANK.HVE_SOUND);}
@@ -2195,20 +2195,9 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
             currentObj[10] = true;
         }
 
-
-        ((TankActivity)context).saveObjectives(objectives);
-//        ((TankActivity) context).nxtBtn.setText(R.string.retryTxt);
-        P1.disableFire();
-        P1.disableMove();
-        gameover = true;
-        enemyFrame = 0;
-        ((TankActivity)context).disableControls();
-        SoundManager.playSound(Sounds.TANK.GAMEOVER);
-        displayGameOver();
-        showScoreTmr = showScoreDelay;
-//        sendPlayerInfo(GAME_OVER);
-        ((TankActivity)context).stop_timer();
-
+        if(!CONSTRUCTION) {
+            ((TankActivity) context).saveObjectives(objectives);
+        }
 
         for(int i = 0; i < currentObj.length; i++) {
             if(i == 0 || i == 3 || i == 4 || i == 8 || i == 9 || objectives.get(level-1)[i]) {
@@ -2221,7 +2210,22 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
             }
         }
 
-        ((TankActivity)context).saveObjectives(objectives);
+        if(!CONSTRUCTION) {
+            ((TankActivity) context).saveObjectives(objectives);
+        }
+
+//        ((TankActivity) context).nxtBtn.setText(R.string.retryTxt);
+        P1.disableFire();
+        P1.disableMove();
+        gameover = true;
+        enemyFrame = 0;
+        ((TankActivity)context).disableControls();
+        SoundManager.playSound(Sounds.TANK.GAMEOVER);
+        displayGameOver();
+        showScoreTmr = showScoreDelay;
+//        sendPlayerInfo(GAME_OVER);
+        ((TankActivity)context).stop_timer();
+
 
         int completedObjectives = getCompletedObjectives(level);
 
@@ -2249,7 +2253,7 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
     }
 
     public void doStageComplete() {
-        SoundManager.stopSounds();
+        SoundManager.stopGameSounds();
 //        try{SoundManager.stopSound(SCENE_SOUND);}
 //        catch (Exception e){}
 //        try{SoundManager.stopSound(Sounds.TANK.HVE_SOUND);}
@@ -2300,8 +2304,9 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
             currentObj[10] = true;
         }
 
-
-        ((TankActivity)context).saveObjectives(objectives);
+        if(!CONSTRUCTION) {
+            ((TankActivity) context).saveObjectives(objectives);
+        }
 //        ((TankActivity) context).nxtBtn.setText(R.string.nextTxt);
         P1.stopShooting();
         P1.stopMoving();
@@ -2322,7 +2327,10 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
                 //TODO give reward for completing objective
             }
         }
-        ((TankActivity)context).saveObjectives(objectives);
+
+        if(!CONSTRUCTION) {
+            ((TankActivity) context).saveObjectives(objectives);
+        }
 
         int completedObjectives = getCompletedObjectives(level);
 
