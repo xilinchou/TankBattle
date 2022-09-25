@@ -27,6 +27,7 @@ public class HVE extends Enemy{
     private boolean bombed = false;
     int dframe = 0;
     int dframe_delay;
+    static boolean IS_AVAILABLE = false;
 
     public HVE(int x, int y, float v, float vb) {
         super(ObjectType.ST_TANK_D, 1, x, y );
@@ -41,6 +42,13 @@ public class HVE extends Enemy{
         vPaint = new Paint();
         vPaint.setColor(Color.GREEN);
         killScore = "600";
+
+        if(!IS_AVAILABLE){
+            SoundManager.stopSound(TankView.SCENE_SOUND);
+            TankView.SCENE_SOUND = Sounds.TANK.HVE_SOUND;
+            SoundManager.playSound(Sounds.TANK.HVE_SOUND,true);
+            IS_AVAILABLE = true;
+        }
 
     }
 
@@ -165,7 +173,7 @@ public class HVE extends Enemy{
             bombed = true;
             dframe = 0;
             dframe_delay = dsprite.frame_time;
-            SoundManager.playSound(Sounds.TANK.EXPLOSION, 1.5f,1);
+            SoundManager.playSound(Sounds.TANK.EXPLOSION, 1.5f,4);
         }
         return boostShield;
     }

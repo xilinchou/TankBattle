@@ -167,6 +167,7 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
     private boolean new_hve = false;
     private Point hve_pos;
     private int NUM_HVE, HVE_LIVES;
+    public static int SCENE_SOUND = -1;
     private final int[][] eaglePos = {{11,25},{11,24},{11,23},{12,23},{13,23},{14,23},{14,24},{14,25}};
 
     private  Bitmap curtain;
@@ -834,6 +835,11 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 //            ((TankActivity) context).loadInterstitialAd();
 //        }
 //        level;
+
+        try{SoundManager.stopSound(SCENE_SOUND);}
+        catch (Exception e){}
+        try{SoundManager.stopSound(Sounds.TANK.HVE_SOUND);}
+        catch (Exception e){}
     }
 
     /**
@@ -959,7 +965,10 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
         double num_hve = Math.pow(10,level*Math.log10(MAX_HVE)/NUM_LEVELS);
         NUM_HVE = (int)Math.floor(num_hve+0.5);
         HVE_LIVES = NUM_HVE;
+        HVE.IS_AVAILABLE = false;
         Log.d("HVE: ", String.valueOf(NUM_HVE));
+        SCENE_SOUND = (int)(Sounds.TANK.FIGHT_SCENE1 + Math.random()*(Sounds.TANK.FIGHT_SCENE7-Sounds.TANK.FIGHT_SCENE1) + 0.5);
+        SoundManager.playSound(SCENE_SOUND,true);
     }
 
     /**
@@ -1056,6 +1065,7 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
         }
         if(!showingScore) {
             //First time
+            SoundManager.stopSounds();
             //TODO why is retry count default 3 here?
             int retries = ((TankActivity)context).settings.getInt(TankActivity.RETRY_COUNT,3);
 
@@ -1908,12 +1918,6 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 //                pauseNoAds();
                 TankView.EVENT = TankView.GAME_OVER;
                 sendPlayerInfo(GAME_OVER);
-//                if (((TankActivity) context).mInterstitialAd == null) {
-////                    ((TankActivity) context).loadInterstitialAd();
-//                    ((TankActivity) context).loadRewardedInterstitialAd();
-//                }
-////                ((TankActivity) context).showInterstitialAd();
-//                ((TankActivity) context).showRewardedInterstitialAd();
                 doGameOver();
             }
 
@@ -1927,20 +1931,10 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
                 } else if (CHECKING_RETRY == 4) {
                     // Did not get new life
                     CHECKING_RETRY = 0;
+                    SoundManager.stopSounds();
                     pauseNoAds();
                     TankView.EVENT = TankView.GAME_OVER;
                     sendPlayerInfo(GAME_OVER);
-                    if(CheckAdd.getInstance().transition()) {
-                        if (((TankActivity) context).mInterstitialAd == null) {
-//                        ((TankActivity) context).loadInterstitialAd();
-                            ((TankActivity) context).loadRewardedInterstitialAd();
-                        }
-//                    ((TankActivity) context).showInterstitialAd();
-                        ((TankActivity) context).showRewardedInterstitialAd(false);
-                    }
-                    else {
-                        resumeNoAds();
-                    }
                     doGameOver();
                 }
             }
@@ -1952,10 +1946,8 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
                 pauseNoAds();
                 if(CheckAdd.getInstance().transition()) {
                     if (((TankActivity) context).mInterstitialAd == null) {
-//                    ((TankActivity) context).loadInterstitialAd();
                         ((TankActivity) context).loadRewardedInterstitialAd();
                     }
-//                ((TankActivity) context).showInterstitialAd();
                     ((TankActivity) context).showRewardedInterstitialAd(false);
                 }
                 else {
@@ -2158,6 +2150,11 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
     }
 
     public void doGameOver() {
+        SoundManager.stopSounds();
+//        try{SoundManager.stopSound(SCENE_SOUND);}
+//        catch (Exception e){}
+//        try{SoundManager.stopSound(Sounds.TANK.HVE_SOUND);}
+//        catch (Exception e){}
 
         for(int i = 2; i < P1.killTime.size(); i ++) {
             if(P1.killTime.get(i) - P1.killTime.get(i-2) <= 10000) {
@@ -2212,9 +2209,11 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 
         for(int i = 0; i < currentObj.length; i++) {
             if(i == 0 || i == 3 || i == 4 || i == 8 || i == 9 || objectives.get(level-1)[i]) {
+                //Objective already completed. Objectives 0,3,4,8 and 9 can only be completed if game is completed
                 continue;
             }
             if(currentObj[i]) {
+                //Objective true completed
                 objectives.get(level-1)[i] = true;
             }
         }
@@ -2247,7 +2246,11 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
     }
 
     public void doStageComplete() {
-
+        SoundManager.stopSounds();
+//        try{SoundManager.stopSound(SCENE_SOUND);}
+//        catch (Exception e){}
+//        try{SoundManager.stopSound(Sounds.TANK.HVE_SOUND);}
+//        catch (Exception e){}
         for(int i = 2; i < P1.killTime.size(); i ++) {
             if(currentObj[1] && currentObj[2]) {
                 break;
@@ -2307,9 +2310,11 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 
         for(int i = 0; i < currentObj.length; i++) {
             if(objectives.get(level-1)[i]) {
+                //Objective already completed
                 continue;
             }
             if(currentObj[i]) {
+                //Objective just completed
                 objectives.get(level-1)[i] = true;
                 //TODO give reward for completing objective
             }
@@ -3089,37 +3094,36 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
         return true;
     }
 
-    public void pauseNoAds() {
-        mCurrentState = TankView.State.Stopped;
-        mLastState = State.Running;
-//        SoundManager.pauseSounds();
-    }
-
-    public void interrupt() {
-        sendPlayerInfo(PAUSE);
-//        TankView.EVENT = TankView.PAUSE;
-        enablePause(false);
-        ((TankActivity)context).disableControls();
-        mCurrentState = TankView.State.Stopped;
-        mLastState = State.Running;
-//        ((TankActivity)context).pauseBtn.setText(R.string.continueTxt);
-//        SoundManager.pauseSounds();
-    }
 
     public void enablePause(boolean enable) {
         ((TankActivity)context).pauseBtn.setEnabled(enable);
     }
 
     public void resumeNoAds() {
+        if(!SoundManager.isActive(SCENE_SOUND)) {
+            SoundManager.playSound(SCENE_SOUND,true);
+        }
+        SoundManager.resumeSound(SCENE_SOUND);
         sendPlayerInfo(RESUME);
-        enablePause(true);
-        ((TankActivity)context).enableControls();
+//        enablePause(true);
+//        ((TankActivity)context).enableControls();
+        ((TankActivity)TankView.context).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                enablePause(true);
+                ((TankActivity)context).enableControls();
+            }
+        });
         mLastState = TankView.State.Stopped;
         mCurrentState = State.Running;
 //        SoundManager.resumeSounds();
     }
 
     public void _resumeNoAds() {
+        if(!SoundManager.isActive(SCENE_SOUND)) {
+            SoundManager.playSound(SCENE_SOUND,true);
+        }
+        SoundManager.resumeSound(SCENE_SOUND);
         ((TankActivity)TankView.context).runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -3130,6 +3134,25 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 
         mLastState = TankView.State.Stopped;
         mCurrentState = State.Running;
+    }
+
+    public void pauseNoAds() {
+        SoundManager.pauseSound(SCENE_SOUND);
+        mCurrentState = TankView.State.Stopped;
+        mLastState = State.Running;
+//        SoundManager.pauseSounds();
+    }
+
+    public void interrupt() {
+        sendPlayerInfo(PAUSE);
+//        TankView.EVENT = TankView.PAUSE;
+        enablePause(false);
+        ((TankActivity)context).disableControls();
+        pauseNoAds();
+//        mCurrentState = TankView.State.Stopped;
+//        mLastState = State.Running;
+//        ((TankActivity)context).pauseBtn.setText(R.string.continueTxt);
+//        SoundManager.pauseSounds();
     }
 
 

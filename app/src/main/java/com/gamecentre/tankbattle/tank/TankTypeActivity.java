@@ -88,7 +88,8 @@ public class TankTypeActivity extends AppCompatActivity {
         loadSounds();
         loadSoundSettings();
 
-
+//        SoundManager.playSound(Sounds.TANK.FIGHT_SCENE1);
+//        SoundManager.playSound(Sounds.TANK.CLICK);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -164,6 +165,17 @@ public class TankTypeActivity extends AppCompatActivity {
                 R.raw.tnkclick2,
                 R.raw.tnkclick3,
                 R.raw.tnkconnect,
+
+                R.raw.tnk_hve,
+                R.raw.tnk_gamebkgnd,
+                R.raw.tnk_fightscene1,
+                R.raw.tnk_fightscene2,
+                R.raw.tnk_fightscene3,
+                R.raw.tnk_fightscene4,
+                R.raw.tnk_fightscene5,
+                R.raw.tnk_fightscene6,
+                R.raw.tnk_fightscene7,
+
         };
         SoundManager.loadSounds(sounds);
     }

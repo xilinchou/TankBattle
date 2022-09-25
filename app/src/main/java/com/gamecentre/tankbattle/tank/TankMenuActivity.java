@@ -40,6 +40,9 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd;
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
@@ -72,7 +75,8 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
 
 
     TankTextView grenadeTxt, helmetTxt, clockTxt, shovelTxt, tankTxt,starTxt, gunTxt, boatTxt, goldTxt, retryTxt, retryTmr, adCoinTxt;
-    ImageView shopImg, retryImg;
+    ImageView shopImg, retryImg, inviteBtn;
+    ObjectAnimator animateInviteBtn;
     boolean firstTime = true;
 
     TankTextView inviteTxt;
@@ -172,12 +176,36 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
 
         MessageRegister.getInstance().setServiceListener(this);
         opened = true;
+
+        inviteBtn = findViewById(R.id.inviteBtn);
+
+        animateInviteBtn = ObjectAnimator.ofPropertyValuesHolder(
+                inviteBtn,
+                PropertyValuesHolder.ofFloat("scaleX", 1.5f),
+                PropertyValuesHolder.ofFloat("scaleY", 1.5f)
+        );
+        animateInviteBtn.setDuration(500);
+        animateInviteBtn.setRepeatMode(ValueAnimator.REVERSE);
+        animateInviteBtn.setRepeatCount(1);
+
+    }
+
+    private void expandView(View v) {
+        ObjectAnimator viewAnimator = ObjectAnimator.ofPropertyValuesHolder(
+                v,
+                PropertyValuesHolder.ofFloat("scaleX", 1.5f),
+                PropertyValuesHolder.ofFloat("scaleY", 1.5f)
+        );
+        viewAnimator.setDuration(500);
+        viewAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        viewAnimator.setRepeatCount(1);
     }
 
 
     protected void onResume() {
         super.onResume();
         opened = true;
+        SoundManager.playSound(Sounds.TANK.GAME_BACKGROUND,true);
     }
 
 
@@ -336,6 +364,7 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
                                 messageTextView.setTextSize(20);
 
                                 toast.show();
+                                animateInviteBtn.start();
                             }
                         }
                         return true;
@@ -396,6 +425,7 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
     }
 
     public void startGame(boolean twoPlayers) {
+        SoundManager.stopSound(Sounds.TANK.GAME_BACKGROUND);
         Intent i = new Intent(this, TankActivity.class);
         i.putExtra(TankMenuActivity.TWO_PLAYERS, twoPlayers);
         startActivity(i);
@@ -631,6 +661,7 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
                     /** Called when ad showed the full screen content. */
                     @Override
                     public void onAdShowedFullScreenContent() {
+                        SoundManager.pauseSound(Sounds.TANK.GAME_BACKGROUND);
                         Log.d("Rewarded InterstitialAD", "onAdShowedFullScreenContent");
                         GOT_IREWARD = false;
 
@@ -657,6 +688,7 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
                     /** Called when full screen content is dismissed. */
                     @Override
                     public void onAdDismissedFullScreenContent() {
+                        SoundManager.resumeSound(Sounds.TANK.GAME_BACKGROUND);
                         // Don't forget to set the ad reference to null so you
                         // don't show the ad a second time.
                         mRewardedInterstitialAd = null;

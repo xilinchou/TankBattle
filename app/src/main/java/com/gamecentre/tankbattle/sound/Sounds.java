@@ -33,6 +33,16 @@ public class Sounds {
         public static final int CLICK2 = 20;
         public static final int CLICK3 = 21;
         public static final int CONNECT = 22;
+
+        public static final int HVE_SOUND = 23;
+        public static final int GAME_BACKGROUND = 24;
+        public static final int FIGHT_SCENE1 = 25;
+        public static final int FIGHT_SCENE2 = 26;
+        public static final int FIGHT_SCENE3 = 27;
+        public static final int FIGHT_SCENE4 = 28;
+        public static final int FIGHT_SCENE5 = 29;
+        public static final int FIGHT_SCENE6 = 30;
+        public static final int FIGHT_SCENE7 = 31;
     }
 
 }

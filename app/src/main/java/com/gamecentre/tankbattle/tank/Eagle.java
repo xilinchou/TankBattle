@@ -50,7 +50,7 @@ public class Eagle extends GameObjects{
 
     public void setDestroyed() {
         super.setDestroyed();
-        SoundManager.playSound(Sounds.TANK.EXPLOSION);
+        SoundManager.playSound(Sounds.TANK.EXPLOSION,1.5f,4);
         frame = 0;
         frame_delay = dsprite.frame_time;
     }

@@ -5,6 +5,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SoundManager
@@ -12,6 +13,8 @@ public class SoundManager
     static private SoundManager _instance;
     private static SoundPool mSoundPool;
     private static HashMap<Integer, Integer> mSoundPoolMap;
+    private static ArrayList<Integer> streamIDs;
+    private static ArrayList<Boolean> activeSounds;
     private static AudioManager mAudioManager;
     private static Context mContext;
     private static boolean playSound;
@@ -39,8 +42,14 @@ public class SoundManager
 
     public static void loadSounds(int[] resID)
     {
+        streamIDs = new ArrayList<>();
+        activeSounds = new ArrayList<>();
+        streamIDs.add(0);
+        activeSounds.add(false);
         for(int i=1; i<= resID.length;i++){
             mSoundPoolMap.put(i, mSoundPool.load(mContext, resID[i-1], 1));
+            streamIDs.add(0);
+            activeSounds.add(false);
         }
         //TODO
 //        mSoundPoolMap.put(1, mSoundPool.load(mContext, R.raw.hit, 1));
@@ -64,7 +73,9 @@ public class SoundManager
         {
             float streamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
             streamVolume = streamVolume / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-            mSoundPool.play(mSoundPoolMap.get(index), streamVolume, streamVolume, 1, 0, 1);
+            int stremID = mSoundPool.play(mSoundPoolMap.get(index), streamVolume, streamVolume, 1, 0, 1);
+            streamIDs.set(index,stremID);
+            activeSounds.set(index,true);
         }
     }
 
@@ -74,11 +85,46 @@ public class SoundManager
         {
             float streamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
             streamVolume = streamVolume / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-            mSoundPool.play(mSoundPoolMap.get(index), streamVolume*volume, streamVolume*volume, priority, 0, 1);
+            int streamID = mSoundPool.play(mSoundPoolMap.get(index), streamVolume*volume, streamVolume*volume, priority, 0, 1);
+            streamIDs.set(index,streamID);
+            activeSounds.set(index,true);
+        }
+    }
+
+    public static void playSound(int index, boolean loop)
+    {
+        if(loop && activeSounds.get(index)) {
+            return;
+        }
+
+        if (playSound)
+        {
+            float streamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+            streamVolume = streamVolume / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+            int streamID = mSoundPool.play(mSoundPoolMap.get(index), streamVolume, streamVolume, loop?5:1, loop?-1:0, 1);
+            streamIDs.set(index,streamID);
+            activeSounds.set(index,true);
+        }
+    }
+
+    public static void playSound(int index, float volume, int priority, boolean loop)
+    {
+        if(loop && activeSounds.get(index)) {
+            return;
+        }
+
+        if (playSound)
+        {
+            float streamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+            streamVolume = streamVolume / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+            int streamID = mSoundPool.play(mSoundPoolMap.get(index), streamVolume*volume, streamVolume*volume, priority, loop?-1:0, 1);
+            streamIDs.set(index,streamID);
+            activeSounds.set(index,true);
         }
     }
 
     public static void pauseSounds() {
+
         for (int soundIndex : mSoundPoolMap.values())
         {
             if(soundIndex == Sounds.TANK.PAUSE) {
@@ -86,15 +132,38 @@ public class SoundManager
             }
             mSoundPool.pause(soundIndex);
         }
-
     }
 
     public static void resumeSounds() {
+        if(!playSound) {
+            return;
+        }
         for (int soundIndex : mSoundPoolMap.values())
         {
             mSoundPool.resume(soundIndex);
         }
+    }
 
+    public static void resumeSound(int index) {
+        if(!playSound) {
+            return;
+        }
+        mSoundPool.resume(streamIDs.get(index));
+
+    }
+
+    public static void pauseSound(int index) {
+        if(activeSounds.get(index)) {
+            mSoundPool.pause(streamIDs.get(index));
+        }
+    }
+
+    public static void pauseGameSounds() {
+        for(int i = 0; i < streamIDs.size(); i++) {
+            if(activeSounds.get(i)) {
+                mSoundPool.pause(streamIDs.get(i));
+            }
+        }
     }
 
     public static void togglePlaySound()
@@ -115,7 +184,22 @@ public class SoundManager
 
     public static void stopSound(int index)
     {
-        mSoundPool.stop(mSoundPoolMap.get(index));
+        mSoundPool.stop(streamIDs.get(index));
+        activeSounds.set(index,false);
+    }
+
+    public static void stopSounds()
+    {
+        for(int i = 0; i < streamIDs.size(); i++) {
+            if(activeSounds.get(i)) {
+                mSoundPool.stop(streamIDs.get(i));
+                activeSounds.set(i, false);
+            }
+        }
+    }
+
+    public static boolean isActive(int index) {
+        return activeSounds.get(index);
     }
 
     public static void cleanup()

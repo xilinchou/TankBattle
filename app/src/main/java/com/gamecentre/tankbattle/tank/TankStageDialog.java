@@ -335,9 +335,9 @@ public class TankStageDialog extends Dialog implements View.OnTouchListener, Rem
             ArrayList<boolean[]> obj = new ArrayList<>();
             for(int i = 0; i < TankView.NUM_LEVELS; i++) {
                 boolean[] p = new boolean[TankView.NUM_OBJECTIVES];
-                for(int j = 0; j < p.length; j++) {
-                    p[j] = false;
-                }
+//                for(int j = 0; j < p.length; j++) {
+//                    p[j] = false;
+//                }
                 obj.add(p);
             }
             saveObjectives(obj);

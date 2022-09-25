@@ -83,6 +83,7 @@ public class TankSettingsDialog extends Dialog implements android.view.View.OnCl
                 editor.putBoolean(TankMenuActivity.PREF_MUTED, true);
             } else {
                 editor.putBoolean(TankMenuActivity.PREF_MUTED, false);
+                SoundManager.stopSounds();
             }
 
 

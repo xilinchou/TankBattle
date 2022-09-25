@@ -239,7 +239,7 @@ public class Tank extends GameObjects {
 
     public void setDestroyed() {
         super.setDestroyed();
-        SoundManager.playSound(Sounds.TANK.EXPLOSION, 1.5f,1);
+        SoundManager.playSound(Sounds.TANK.EXPLOSION, 1.5f,4);
         stopMoving();
         frame = 0;
         frame_delay = dsprite.frame_time;
