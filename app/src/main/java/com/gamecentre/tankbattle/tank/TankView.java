@@ -856,7 +856,16 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
         notifyPause = false;
         notifyEndGame = false;
         notifyRetryStage = false;
+        notifyGiftLife = false;
+        notifyReceivedLife = false;
         freeze = false;
+
+        enemyBoat = false;
+        new_hve = false;
+        HVE.IS_AVAILABLE = false;
+
+
+
         P1.unFreeze();
         if(twoPlayers) {
             P2.setFreeze();
@@ -2011,7 +2020,9 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
             eagle.protection = 2;
         }
 
-        if(new_hve && HVE.isViewing()){
+        if(HVE.IS_AVAILABLE && HVE.isViewing()){
+            // return here is necessary to ensure that game is not running when HVE is viewing
+            // however, we still need to send information for P2
             sendToWifi();
             return;
         }
@@ -2049,12 +2060,14 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
             checkCollisionPlayerWithBonus(P1, bonus);
             checkCollisionEnemyBulletWithPlayer(P1);
         }
-            checkCollisionPlayer(P1);
-            checkCollisionPlayerWithGold();
-            P1.update();
-            if(twoPlayers) {
-                P2.updateBullets();
-            }
+
+        checkCollisionPlayer(P1);
+        checkCollisionPlayerWithGold();
+        P1.update();
+
+        if(twoPlayers) {
+            P2.updateBullets();
+        }
 
         if(!twoPlayers || WifiDirectManager.getInstance().isServer()) {
             // Get target
@@ -2080,6 +2093,14 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
             checkCollisionEnemy();
             for (Enemy e : Enemies) {
                 e.update(true);
+            }
+        }
+
+        if(HVE.IS_AVAILABLE) {
+            for (Enemy e : Enemies) {
+                if (e instanceof HVE && !((HVE) e).hasTarget()) {
+                    ((HVE) e).getView(P1);
+                }
             }
         }
 
@@ -2652,6 +2673,7 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
     }
 
     public void generateEnemy() {
+        new_hve = false;
         ++new_enemy_time;
         if(new_enemy_time > genEnemyTime) {
             int group = 1;
@@ -2703,10 +2725,10 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 
             if(Enemies.size() < MAX_ENEMIES && Enemy.lives > 0) {
                 Enemy enemy;
-                if(Enemy.lives <= 2*NUM_HVE) {
+                if(Enemy.lives <= NUM_HVE) {
                     if(Enemy.lives <= HVE_LIVES) {
-                        float v = 0.5f*(float)Math.pow(10,level*Math.log10(2.2)/NUM_LEVELS);
-                        float vb = 0.8f*(float)Math.pow(10,level*Math.log10(1.75)/NUM_LEVELS);
+                        float v = 0.3f*(float)Math.pow(10,level*Math.log10(3.7)/NUM_LEVELS);    //HVE speed
+                        float vb = 0.8f*(float)Math.pow(10,level*Math.log10(1.75)/NUM_LEVELS);  //HVE bullet speed
                         enemy = new HVE(0, 0,v,vb);
                         --HVE_LIVES;
                         new_hve = true;
@@ -2736,9 +2758,9 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 //                px = (px > TankView.WIDTH - enemy.w) ? (int) (TankView.WIDTH - enemy.w) : px;
                 enemy.x = p * 6*enemy.w;
                 enemy.y = 0;
-                if(new_hve) {
-                    ((HVE)enemy).getView(P1);
-                }
+//                if(new_hve) {
+//                    ((HVE)enemy).getView(P1);
+//                }
                 if(Math.random() < 0.2) {
                     enemy.hasBonus = true;
                 }

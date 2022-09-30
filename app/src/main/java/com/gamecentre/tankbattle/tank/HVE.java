@@ -24,10 +24,12 @@ public class HVE extends Enemy{
     int view_frame;
     Paint vPaint;
     private static boolean viewing = false;
+    private boolean gotTarget = false;
     private boolean bombed = false;
     int dframe = 0;
     int dframe_delay;
     static boolean IS_AVAILABLE = false;
+
 
     public HVE(int x, int y, float v, float vb) {
         super(ObjectType.ST_TANK_D, 1, x, y );
@@ -46,10 +48,14 @@ public class HVE extends Enemy{
         if(!IS_AVAILABLE){
             SoundManager.stopSound(TankView.SCENE_SOUND);
             TankView.SCENE_SOUND = Sounds.TANK.HVE_SOUND;
-            SoundManager.playSound(Sounds.TANK.HVE_SOUND,true);
             IS_AVAILABLE = true;
         }
+        SoundManager.playSound(TankView.SCENE_SOUND,true);
 
+    }
+
+    public boolean hasTarget() {
+        return gotTarget;
     }
 
     public void changeDirection() {
@@ -192,6 +198,9 @@ public class HVE extends Enemy{
             hView.add(new Point(px,py));
             d += tile_x;
         }
+
+        gotTarget = true;
+        viewing = true;
 
     }
 
