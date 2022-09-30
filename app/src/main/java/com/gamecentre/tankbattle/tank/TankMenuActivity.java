@@ -188,6 +188,7 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
         animateInviteBtn.setRepeatMode(ValueAnimator.REVERSE);
         animateInviteBtn.setRepeatCount(1);
 
+        SoundManager.playSound(Sounds.TANK.GAME_BACKGROUND,true);
     }
 
     private void expandView(View v) {
@@ -205,13 +206,11 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
     protected void onResume() {
         super.onResume();
         opened = true;
-        SoundManager.playSound(Sounds.TANK.GAME_BACKGROUND,true);
         SoundManager.resumeGameSounds();
     }
 
     protected void onStop() {
         super.onStop();
-        SoundManager.pauseGameSounds();
     }
 
     protected void onPause() {

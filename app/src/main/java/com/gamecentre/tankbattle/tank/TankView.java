@@ -836,10 +836,12 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 //        }
 //        level;
 
-        try{SoundManager.stopSound(SCENE_SOUND);}
-        catch (Exception e){}
-        try{SoundManager.stopSound(Sounds.TANK.HVE_SOUND);}
-        catch (Exception e){}
+//        try{SoundManager.stopSound(SCENE_SOUND);}
+//        catch (Exception e){}
+//        try{SoundManager.stopSound(Sounds.TANK.HVE_SOUND);}
+//        catch (Exception e){}
+
+        SoundManager.stopGameSounds();
     }
 
     /**
@@ -2904,6 +2906,10 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
     }
 
     private void buttonPressed(int dir) {
+        if(dir != P1.getDirection()) {
+            Log.d("DIRECTION","DIR: " + dir + " P1: " + P1.getDirection());
+            TankView.vibrate();
+        }
         switch (dir) {
             case CONST.Direction.UP: {
                 ((TankActivity)context).upBtn.setBackground(ResourcesCompat.getDrawable(context.getResources(),R.drawable.up31_btn,null));
@@ -2965,17 +2971,17 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 
         if(v.getId() == R.id.upBtn) {
             if (m.getX() < 0) {
-                P1.move(CONST.Direction.LEFT);
                 buttonPressed(CONST.Direction.LEFT);
+                P1.move(CONST.Direction.LEFT);
             } else if (m.getX() > ((TankActivity) context).upBtn.getWidth()) {
-                P1.move(CONST.Direction.RIGHT);
                 buttonPressed(CONST.Direction.RIGHT);
+                P1.move(CONST.Direction.RIGHT);
             } else if (m.getY() > ((TankActivity) context).upBtn.getHeight()) {
-                P1.move(CONST.Direction.DOWN);
                 buttonPressed(CONST.Direction.DOWN);
+                P1.move(CONST.Direction.DOWN);
             } else {
-                P1.move(CONST.Direction.UP);
                 buttonPressed(CONST.Direction.UP);
+                P1.move(CONST.Direction.UP);
             }
 
             if(m.getAction() == MotionEvent.ACTION_UP) {
@@ -2985,17 +2991,17 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 
         else  if (v.getId() == R.id.downBtn) {
             if (m.getX() < 0) {
-                P1.move(CONST.Direction.LEFT);
                 buttonPressed(CONST.Direction.LEFT);
+                P1.move(CONST.Direction.LEFT);
             } else if (m.getX() > ((TankActivity) context).dwnBtn.getWidth()) {
-                P1.move(CONST.Direction.RIGHT);
                 buttonPressed(CONST.Direction.RIGHT);
+                P1.move(CONST.Direction.RIGHT);
             } else if (m.getY() < 0) {
-                P1.move(CONST.Direction.UP);
                 buttonPressed(CONST.Direction.UP);
+                P1.move(CONST.Direction.UP);
             } else {
-                P1.move(CONST.Direction.DOWN);
                 buttonPressed(CONST.Direction.DOWN);
+                P1.move(CONST.Direction.DOWN);
             }
 
             if(m.getAction() == MotionEvent.ACTION_UP) {
@@ -3005,17 +3011,17 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 
         else  if (v.getId() == R.id.leftBtn) {
             if (m.getY() < 0) {
-                P1.move(CONST.Direction.UP);
                 buttonPressed(CONST.Direction.UP);
+                P1.move(CONST.Direction.UP);
             } else if (m.getY() > ((TankActivity) context).lftBtn.getHeight()) {
-                P1.move(CONST.Direction.DOWN);
                 buttonPressed(CONST.Direction.DOWN);
+                P1.move(CONST.Direction.DOWN);
             } else if (m.getX() > ((TankActivity) context).lftBtn.getWidth()) {
-                P1.move(CONST.Direction.RIGHT);
                 buttonPressed(CONST.Direction.RIGHT);
+                P1.move(CONST.Direction.RIGHT);
             } else {
-                P1.move(CONST.Direction.LEFT);
                 buttonPressed(CONST.Direction.LEFT);
+                P1.move(CONST.Direction.LEFT);
             }
 
             if(m.getAction() == MotionEvent.ACTION_UP) {
@@ -3025,17 +3031,17 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
 
         else  if (v.getId() == R.id.rightBtn) {
             if (m.getY() < 0) {
-                P1.move(CONST.Direction.UP);
                 buttonPressed(CONST.Direction.UP);
+                P1.move(CONST.Direction.UP);
             } else if (m.getY() > ((TankActivity) context).rtBtn.getHeight()) {
-                P1.move(CONST.Direction.DOWN);
                 buttonPressed(CONST.Direction.DOWN);
+                P1.move(CONST.Direction.DOWN);
             } else if (m.getX() < 0) {
-                P1.move(CONST.Direction.LEFT);
                 buttonPressed(CONST.Direction.LEFT);
+                P1.move(CONST.Direction.LEFT);
             } else {
-                P1.move(CONST.Direction.RIGHT);
                 buttonPressed(CONST.Direction.RIGHT);
+                P1.move(CONST.Direction.RIGHT);
             }
 
             if(m.getAction() == MotionEvent.ACTION_UP) {

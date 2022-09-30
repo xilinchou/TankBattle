@@ -135,7 +135,7 @@ public class SoundManager
     }
 
     public static void resumeGameSounds() {
-        Log.d("RESUME", "Resuming game sound");
+        Log.d("RESUME", "Resuming game sounds");
         if(!playSound) {
             return;
         }
@@ -151,18 +151,20 @@ public class SoundManager
         if(!playSound) {
             return;
         }
+        Log.d("RESUME", "Resuming game sound");
         mSoundPool.resume(streamIDs.get(index));
 
     }
 
     public static void pauseSound(int index) {
+        Log.d("PAUSE", "Pausing game sound");
         if(activeSounds.get(index)) {
             mSoundPool.pause(streamIDs.get(index));
         }
     }
 
     public static void pauseGameSounds() {
-        Log.d("PAUSE", "Pausing game sound");
+        Log.d("PAUSE", "Pausing game sounds");
         for(int i = 0; i < streamIDs.size(); i++) {
             if(activeSounds.get(i)) {
                 mSoundPool.pause(streamIDs.get(i));
@@ -188,12 +190,14 @@ public class SoundManager
 
     public static void stopSound(int index)
     {
+        Log.d("STOP", "Stopping game sound");
         mSoundPool.stop(streamIDs.get(index));
         activeSounds.set(index,false);
     }
 
     public static void stopGameSounds()
     {
+        Log.d("STOP", "Stopping game sounds");
         for(int i = 0; i < streamIDs.size(); i++) {
             if(activeSounds.get(i)) {
                 mSoundPool.stop(streamIDs.get(i));

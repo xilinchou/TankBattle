@@ -285,10 +285,11 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
             public boolean onTouch(View view, MotionEvent motionEvent) {
 
                 if(motionEvent.getAction() == MotionEvent.ACTION_DOWN){
-                    SoundManager.playSound(Sounds.TANK.GAME_BACKGROUND,true);
-                    Intent i = new Intent(TankActivity.this, TankMenuActivity.class);
-                    TankActivity.this.startActivity(i);
-                    TankActivity.this.finish();
+                    endGame();
+//                    SoundManager.stopGameSounds();
+//                    Intent i = new Intent(TankActivity.this, TankMenuActivity.class);
+//                    TankActivity.this.startActivity(i);
+//                    TankActivity.this.finish();
                 }
                 return true;
             }
@@ -794,10 +795,11 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
 
     public void endGame() {
         mTankView.stop();
-        try{SoundManager.stopSound(TankView.SCENE_SOUND);}
-        catch (Exception e){}
-        try{SoundManager.stopSound(Sounds.TANK.HVE_SOUND);}
-        catch (Exception e){}
+        SoundManager.stopGameSounds();
+//        try{SoundManager.stopSound(TankView.SCENE_SOUND);}
+//        catch (Exception e){}
+//        try{SoundManager.stopSound(Sounds.TANK.HVE_SOUND);}
+//        catch (Exception e){}
 //        mTankView.release();
         Intent i = new Intent(TankActivity.this, TankMenuActivity.class);
         TankActivity.this.startActivity(i);
@@ -834,7 +836,6 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
 
     protected void onStop() {
         super.onStop();
-        SoundManager.pauseGameSounds();
         mTankView.stop();
     }
 

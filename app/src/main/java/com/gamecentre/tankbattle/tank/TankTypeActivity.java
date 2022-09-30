@@ -85,7 +85,7 @@ public class TankTypeActivity extends AppCompatActivity {
 
         startService(new Intent(TankTypeActivity.this, TimerBroadcastService.class));
 
-        loadSounds();
+//        loadSounds();
         loadSoundSettings();
 
 //        SoundManager.playSound(Sounds.TANK.FIGHT_SCENE1);
@@ -139,44 +139,44 @@ public class TankTypeActivity extends AppCompatActivity {
         SoundManager.enableSound(sound);
     }
 
-    private void loadSounds() {
-        SoundManager.getInstance();
-        SoundManager.initSounds(this);
-        int[] sounds = {
-                R.raw.tnkbackground,
-                R.raw.tnkbonus,
-                R.raw.tnkbrick,
-                R.raw.tnkexplosion,
-                R.raw.tnkfire,
-                R.raw.tnkgameover,
-                R.raw.tnkgamestart,
-                R.raw.tnkscore,
-                R.raw.tnksteel,
-                R.raw.tnkpowerup,
-                R.raw.tnkpause,
-                R.raw.tnkearn_gold,
-                R.raw.tnkbuy_item,
-                R.raw.tnk1up,
-                R.raw.tnkslide,
-                R.raw.tnkfindgold,
-                R.raw.tnkbomb,
-                R.raw.tnkdropbomb,
-                R.raw.tnkclick,
-                R.raw.tnkclick2,
-                R.raw.tnkclick3,
-                R.raw.tnkconnect,
-
-                R.raw.tnk_hve,
-                R.raw.tnk_gamebkgnd,
-                R.raw.tnk_fightscene1,
-                R.raw.tnk_fightscene2,
-                R.raw.tnk_fightscene3,
-                R.raw.tnk_fightscene4,
-                R.raw.tnk_fightscene5,
-                R.raw.tnk_fightscene6,
-                R.raw.tnk_fightscene7,
-
-        };
-        SoundManager.loadSounds(sounds);
-    }
+//    private void loadSounds() {
+//        SoundManager.getInstance();
+//        SoundManager.initSounds(this);
+//        int[] sounds = {
+//                R.raw.tnkbackground,
+//                R.raw.tnkbonus,
+//                R.raw.tnkbrick,
+//                R.raw.tnkexplosion,
+//                R.raw.tnkfire,
+//                R.raw.tnkgameover,
+//                R.raw.tnkgamestart,
+//                R.raw.tnkscore,
+//                R.raw.tnksteel,
+//                R.raw.tnkpowerup,
+//                R.raw.tnkpause,
+//                R.raw.tnkearn_gold,
+//                R.raw.tnkbuy_item,
+//                R.raw.tnk1up,
+//                R.raw.tnkslide,
+//                R.raw.tnkfindgold,
+//                R.raw.tnkbomb,
+//                R.raw.tnkdropbomb,
+//                R.raw.tnkclick,
+//                R.raw.tnkclick2,
+//                R.raw.tnkclick3,
+//                R.raw.tnkconnect,
+//
+//                R.raw.tnk_hve,
+//                R.raw.tnk_gamebkgnd,
+//                R.raw.tnk_fightscene1,
+//                R.raw.tnk_fightscene2,
+//                R.raw.tnk_fightscene3,
+//                R.raw.tnk_fightscene4,
+//                R.raw.tnk_fightscene5,
+//                R.raw.tnk_fightscene6,
+//                R.raw.tnk_fightscene7,
+//
+//        };
+//        SoundManager.loadSounds(sounds);
+//    }
 }
