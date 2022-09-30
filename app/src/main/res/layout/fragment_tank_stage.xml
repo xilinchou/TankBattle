@@ -1262,6 +1262,7 @@
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
                 android:layout_centerVertical="true"
                 android:background="@drawable/playstage"/>
 
@@ -1270,6 +1271,7 @@
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
                 android:layout_centerVertical="true"
                 android:background="@drawable/backstage"
                 android:textSize="20sp" />

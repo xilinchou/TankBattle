@@ -465,6 +465,7 @@
                     android:gravity="center">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/starboatCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -562,6 +563,7 @@
 
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/clockshovelCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -659,6 +661,7 @@
 
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/gunhelmetCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -754,7 +757,9 @@
 
                     </androidx.cardview.widget.CardView>
 
+
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/tankgrenadeCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -851,6 +856,7 @@
 
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/mineCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -953,6 +959,7 @@
 
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/gameCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -1031,6 +1038,7 @@
 
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/game6Card"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -1109,6 +1117,7 @@
 
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/adgoldCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -1187,6 +1196,7 @@
 
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/goldCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -1275,6 +1285,7 @@
                     android:layout_marginTop="10dp"/>
 
                 <LinearLayout
+                    android:id="@+id/watchBtnView"
                     android:layout_width="200dp"
                     android:layout_height="0sp"
                     android:layout_marginStart="50dp"

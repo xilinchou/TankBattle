@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -193,39 +194,19 @@ public class TankStageFragment extends Fragment implements View.OnTouchListener,
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    int games = settings.getInt(TankActivity.RETRY_COUNT,0);
-                    long game6h = settings.getLong(TankActivity.LIFE_TIME_6H,0);
+                    ((TankMenuActivity) activity).clickAnimate(view);
+                    new Handler().postDelayed(()->{
+                        int games = settings.getInt(TankActivity.RETRY_COUNT,0);
+                        long game6h = settings.getLong(TankActivity.LIFE_TIME_6H,0);
 
-                    if(games > 0 || game6h > System.currentTimeMillis()){
-                        int level = selected + 1;
+                        if(games > 0 || game6h > System.currentTimeMillis()){
+                            int level = selected + 1;
 
-                        if (twoPlayers && !WifiDirectManager.getInstance().isServer() && ClientConnectionThread.serverStarted) {
-                            //TODO Change to dialog
-                            SoundManager.playSound(Sounds.TANK.CLICK2);
-                            Toast toast = Toast.makeText(activity.getApplicationContext(),
-                                    "Wait for player 1 to select stage!",
-                                    Toast.LENGTH_SHORT);
-
-                            ViewGroup group = (ViewGroup) toast.getView();
-                            TextView messageTextView = (TextView) group.getChildAt(0);
-                            messageTextView.setTextSize(25);
-
-                            toast.show();
-                            return true;
-                        }
-                        else if (twoPlayers && WifiDirectManager.getInstance().isServer() && ServerConnectionThread.serverStarted) {
-                            if(p2Ready) {
-                                SoundManager.playSound(Sounds.TANK.CLICK);
-                                TankGameModel model = new TankGameModel();
-                                model.mlevelInfo = true;
-                                model.mlevel = level;
-                                WifiDirectManager.getInstance().sendMessage(model);
-                            }
-                            else{
+                            if (twoPlayers && !WifiDirectManager.getInstance().isServer() && ClientConnectionThread.serverStarted) {
                                 //TODO Change to dialog
                                 SoundManager.playSound(Sounds.TANK.CLICK2);
                                 Toast toast = Toast.makeText(activity.getApplicationContext(),
-                                        "Player 2 not ready!",
+                                        "Wait for player 1 to select stage!",
                                         Toast.LENGTH_SHORT);
 
                                 ViewGroup group = (ViewGroup) toast.getView();
@@ -233,32 +214,58 @@ public class TankStageFragment extends Fragment implements View.OnTouchListener,
                                 messageTextView.setTextSize(25);
 
                                 toast.show();
-                                return true;
+//                                return true;
+                                return;
                             }
-                        }
+                            else if (twoPlayers && WifiDirectManager.getInstance().isServer() && ServerConnectionThread.serverStarted) {
+                                if(p2Ready) {
+                                    SoundManager.playSound(Sounds.TANK.CLICK);
+                                    TankGameModel model = new TankGameModel();
+                                    model.mlevelInfo = true;
+                                    model.mlevel = level;
+                                    WifiDirectManager.getInstance().sendMessage(model);
+                                }
+                                else{
+                                    //TODO Change to dialog
+                                    SoundManager.playSound(Sounds.TANK.CLICK2);
+                                    Toast toast = Toast.makeText(activity.getApplicationContext(),
+                                            "Player 2 not ready!",
+                                            Toast.LENGTH_SHORT);
 
-                        TankView.level = level;
-                        TankView.CONSTRUCTION = false;
-                        //TODO
-//                        long game6h = settings.getLong(TankActivity.LIFE_TIME_6H,0);
-                        if(game6h < System.currentTimeMillis()) {
-                            --games;
-                            SharedPreferences.Editor editor = settings.edit();
-                            editor.putInt(TankActivity.RETRY_COUNT, games);
-                            if (games == CONST.Tank.MAX_GAME_COUNT - 1) {
-                                editor.putLong(TankActivity.LIFE_TIME, System.currentTimeMillis());
+                                    ViewGroup group = (ViewGroup) toast.getView();
+                                    TextView messageTextView = (TextView) group.getChildAt(0);
+                                    messageTextView.setTextSize(25);
+
+                                    toast.show();
+//                                    return true;
+                                    return;
+                                }
                             }
-                            editor.apply();
+
+                            TankView.level = level;
+                            TankView.CONSTRUCTION = false;
+                            //TODO
+//                        long game6h = settings.getLong(TankActivity.LIFE_TIME_6H,0);
+                            if(game6h < System.currentTimeMillis()) {
+                                --games;
+                                SharedPreferences.Editor editor = settings.edit();
+                                editor.putInt(TankActivity.RETRY_COUNT, games);
+                                if (games == CONST.Tank.MAX_GAME_COUNT - 1) {
+                                    editor.putLong(TankActivity.LIFE_TIME, System.currentTimeMillis());
+                                }
+                                editor.apply();
+                            }
+                            SoundManager.playSound(Sounds.TANK.CLICK);
+                            ((TankMenuActivity) activity).startGame(twoPlayers);
                         }
-                        SoundManager.playSound(Sounds.TANK.CLICK);
-                        ((TankMenuActivity) activity).startGame(twoPlayers);
-                    }
-                    else {
-                        SoundManager.playSound(Sounds.TANK.CLICK2);
-                        openGamePurchse();
-                    }
+                        else {
+                            SoundManager.playSound(Sounds.TANK.CLICK2);
+                            openGamePurchse();
+                        }
+                    },300);
+
                 }
-                return false;
+                return true;
             }
         });
 
@@ -282,16 +289,19 @@ public class TankStageFragment extends Fragment implements View.OnTouchListener,
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    ((TankMenuActivity) activity).clickAnimate(view);
                     SoundManager.playSound(Sounds.TANK.CLICK);
                     selfDismiss = true;
-                    if (twoPlayers && !WifiDirectManager.getInstance().isServer() && ClientConnectionThread.serverStarted) {
+                    new Handler().postDelayed(()->{
+                        if (twoPlayers && !WifiDirectManager.getInstance().isServer() && ClientConnectionThread.serverStarted) {
 
-                        TankGameModel model = new TankGameModel();
-                        model.playerInfo = true;
-                        model.playerReady = false;
-                        WifiDirectManager.getInstance().sendMessage(model);
-                    }
-                    dismiss();
+                            TankGameModel model = new TankGameModel();
+                            model.playerInfo = true;
+                            model.playerReady = false;
+                            WifiDirectManager.getInstance().sendMessage(model);
+                        }
+                        dismiss();
+                    },300);
                 }
                 return true;
             }

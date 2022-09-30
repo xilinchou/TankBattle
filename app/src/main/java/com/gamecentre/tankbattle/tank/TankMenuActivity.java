@@ -49,6 +49,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -155,8 +156,11 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    clickAnimate(view);
                     SoundManager.playSound(Sounds.TANK.CLICK);
-                    openStore();
+                    new Handler().postDelayed(() -> {
+                        openStore();
+                    },300);
                 }
                 return false;
             }
@@ -191,15 +195,16 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
         SoundManager.playSound(Sounds.TANK.GAME_BACKGROUND,true);
     }
 
-    private void expandView(View v) {
+    public void clickAnimate(View v) {
         ObjectAnimator viewAnimator = ObjectAnimator.ofPropertyValuesHolder(
                 v,
-                PropertyValuesHolder.ofFloat("scaleX", 1.5f),
-                PropertyValuesHolder.ofFloat("scaleY", 1.5f)
+                PropertyValuesHolder.ofFloat("scaleX", 1.2f),
+                PropertyValuesHolder.ofFloat("scaleY", 1.2f)
         );
-        viewAnimator.setDuration(500);
+        viewAnimator.setDuration(100);
         viewAnimator.setRepeatMode(ValueAnimator.REVERSE);
         viewAnimator.setRepeatCount(1);
+        viewAnimator.start();
     }
 
 
@@ -346,8 +351,11 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
                     @Override
                     public boolean onTouch(View v, MotionEvent m) {
                         if(m.getAction() == MotionEvent.ACTION_DOWN) {
+                            clickAnimate(v);
                             SoundManager.playSound(Sounds.TANK.CLICK);
-                            openStages(v, false);
+                            new Handler().postDelayed(() -> {
+                                openStages(v, false);
+                            },300);
                         }
                         return true;
                     }
@@ -358,24 +366,27 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
                     @Override
                     public boolean onTouch(View v, MotionEvent m) {
                         if(m.getAction() == MotionEvent.ACTION_DOWN) {
-                            if ((WifiDirectManager.getInstance().isServer() && ServerConnectionThread.serverStarted) ||
-                                    (!WifiDirectManager.getInstance().isServer() && ClientConnectionThread.serverStarted)) {
-                                SoundManager.playSound(Sounds.TANK.CLICK);
-                                openStages(v, true);
-                            } else {
-                                //TODO Change toast to dialog
-                                SoundManager.playSound(Sounds.TANK.CLICK2);
-                                Toast toast = Toast.makeText(TankMenuActivity.this.getApplicationContext(),
-                                        "Invite a player first",
-                                        Toast.LENGTH_SHORT);
+                            clickAnimate(v);
+                            SoundManager.playSound(Sounds.TANK.CLICK);
+                            new Handler().postDelayed(() -> {
+                                if ((WifiDirectManager.getInstance().isServer() && ServerConnectionThread.serverStarted) ||
+                                        (!WifiDirectManager.getInstance().isServer() && ClientConnectionThread.serverStarted)) {
+                                    openStages(v, true);
+                                } else {
+                                    //TODO Change toast to dialog
+                                    SoundManager.playSound(Sounds.TANK.CLICK2);
+                                    Toast toast = Toast.makeText(TankMenuActivity.this.getApplicationContext(),
+                                            "Invite a player first",
+                                            Toast.LENGTH_SHORT);
 
-                                ViewGroup group = (ViewGroup) toast.getView();
-                                TextView messageTextView = (TextView) group.getChildAt(0);
-                                messageTextView.setTextSize(20);
+                                    ViewGroup group = (ViewGroup) toast.getView();
+                                    TextView messageTextView = (TextView) group.getChildAt(0);
+                                    messageTextView.setTextSize(20);
 
-                                toast.show();
-                                animateInviteBtn.start();
-                            }
+                                    toast.show();
+                                    animateInviteBtn.start();
+                                }
+                            },300);
                         }
                         return true;
                     }
@@ -386,13 +397,16 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
                     @Override
                     public boolean onTouch(View v, MotionEvent m) {
                         if(m.getAction() == MotionEvent.ACTION_DOWN) {
+                            clickAnimate(v);
                             SoundManager.playSound(Sounds.TANK.CLICK);
-                            Log.d("Construction", "Opening fragment");
-                            FragmentManager fragmentManager = getSupportFragmentManager();
-                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                            fragmentTransaction.replace(R.id.fragmentFrame,new ConstructionFragment(TankMenuActivity.this));
-                            fragmentTransaction.addToBackStack("cFragment");
-                            fragmentTransaction.commit();
+                            new Handler().postDelayed(()->{
+                                Log.d("Construction", "Opening fragment");
+                                FragmentManager fragmentManager = getSupportFragmentManager();
+                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                fragmentTransaction.replace(R.id.fragmentFrame,new ConstructionFragment(TankMenuActivity.this));
+                                fragmentTransaction.addToBackStack("cFragment");
+                                fragmentTransaction.commit();
+                            },300);
                         }
                         return true;
                     }
@@ -403,11 +417,14 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
                     @Override
                     public boolean onTouch(View v, MotionEvent m) {
                         if(m.getAction() == MotionEvent.ACTION_DOWN) {
+                            clickAnimate(v);
                             SoundManager.playSound(Sounds.TANK.CLICK);
-                            SoundManager.stopGameSounds();
-                            Intent i = new Intent(TankMenuActivity.this, TankTypeActivity.class);
-                            TankMenuActivity.this.startActivity(i);
-                            TankMenuActivity.this.finish();
+                            new Handler().postDelayed(()->{
+                                SoundManager.stopGameSounds();
+                                Intent i = new Intent(TankMenuActivity.this, TankTypeActivity.class);
+                                TankMenuActivity.this.startActivity(i);
+                                TankMenuActivity.this.finish();
+                            },300);
                         }
                         return true;
                     }

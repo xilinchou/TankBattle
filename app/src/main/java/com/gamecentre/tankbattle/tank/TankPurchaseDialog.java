@@ -1,17 +1,23 @@
 package com.gamecentre.tankbattle.tank;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.gamecentre.tankbattle.R;
 import com.gamecentre.tankbattle.billing.TransactionManager;
@@ -33,6 +39,9 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
 //    TankTextView goldCountTxt;
 
     TankTextView grenadeTxt, helmetTxt, clockTxt, shovelTxt, tankTxt,starTxt, gunTxt, boatTxt, mineTxt, goldTxt, retryTxt, adCoinTxt;
+
+    CardView starboatCard, clockshovelCard, gunhelmetCard, tankgrenadeCard, mineCard, gameCard, game6Card, adgoldCard, goldCard;
+    LinearLayout watchBtnView;
 
     private static String TOTAL_GOLD = "TOTAL GOLD";
 
@@ -79,53 +88,61 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
         findViewById(R.id.watchgold).setOnClickListener(this);
         cancelBtn.setOnClickListener(this);
 
+        starboatCard = findViewById(R.id.starboatCard);
         findViewById(R.id.starboat1).setOnClickListener(this);
         findViewById(R.id.starboat2).setOnClickListener(this);
         findViewById(R.id.starboat3).setOnClickListener(this);
         findViewById(R.id.starboat4).setOnClickListener(this);
 
-
+        clockshovelCard = findViewById(R.id.clockshovelCard);
         findViewById(R.id.clockshovel1).setOnClickListener(this);
         findViewById(R.id.clockshovel2).setOnClickListener(this);
         findViewById(R.id.clockshovel3).setOnClickListener(this);
         findViewById(R.id.clockshovel4).setOnClickListener(this);
 
-
+        gunhelmetCard = findViewById(R.id.gunhelmetCard);
         findViewById(R.id.gunhelmet1).setOnClickListener(this);
         findViewById(R.id.gunhelmet2).setOnClickListener(this);
         findViewById(R.id.gunhelmet3).setOnClickListener(this);
         findViewById(R.id.gunhelmet4).setOnClickListener(this);
 
-
+        tankgrenadeCard = findViewById(R.id.tankgrenadeCard);
         findViewById(R.id.tankgrenade1).setOnClickListener(this);
         findViewById(R.id.tankgrenade2).setOnClickListener(this);
         findViewById(R.id.tankgrenade3).setOnClickListener(this);
         findViewById(R.id.tankgrenade4).setOnClickListener(this);
 
+        mineCard = findViewById(R.id.mineCard);
         findViewById(R.id.buy_mine).setOnClickListener(this);
         findViewById(R.id.mine1).setOnClickListener(this);
         findViewById(R.id.mine2).setOnClickListener(this);
         findViewById(R.id.mine3).setOnClickListener(this);
         findViewById(R.id.mine4).setOnClickListener(this);
 
+        gameCard = findViewById(R.id.gameCard);
         findViewById(R.id.buy_game).setOnClickListener(this);
         findViewById(R.id.game2).setOnClickListener(this);
         findViewById(R.id.game3).setOnClickListener(this);
         findViewById(R.id.game4).setOnClickListener(this);
 
+        game6Card = findViewById(R.id.game6Card);
         findViewById(R.id.buy_game6).setOnClickListener(this);
         findViewById(R.id.game62).setOnClickListener(this);
         findViewById(R.id.game63).setOnClickListener(this);
         findViewById(R.id.game64).setOnClickListener(this);
 
+        adgoldCard = findViewById(R.id.adgoldCard);
         findViewById(R.id.buy_goldAd).setOnClickListener(this);
         findViewById(R.id.goldAd2).setOnClickListener(this);
         findViewById(R.id.goldAd3).setOnClickListener(this);
         findViewById(R.id.goldAd4).setOnClickListener(this);
 
+        goldCard = findViewById(R.id.goldCard);
         findViewById(R.id.buy_gold).setOnClickListener(this);
         findViewById(R.id.gold2).setOnClickListener(this);
         findViewById(R.id.gold3).setOnClickListener(this);
+
+        watchBtnView = findViewById(R.id.watchBtnView);
 
 //        goldCountTxt = (TankTextView)findViewById(R.id.stashTxt);
 
@@ -166,6 +183,30 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
         adCoinTxt.setText(String.valueOf(settings.getInt(TankActivity.AD_COIN,0)));
     }
 
+    public void clickAnimate1(View v) {
+        ObjectAnimator viewAnimator = ObjectAnimator.ofPropertyValuesHolder(
+                v,
+                PropertyValuesHolder.ofFloat("scaleX", 1.2f),
+                PropertyValuesHolder.ofFloat("scaleY", 1.2f)
+        );
+        viewAnimator.setDuration(100);
+        viewAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        viewAnimator.setRepeatCount(1);
+        viewAnimator.start();
+    }
+
+
+    public void clickAnimate2(View v) {
+        ObjectAnimator viewAnimator = ObjectAnimator.ofPropertyValuesHolder(
+                v,
+                PropertyValuesHolder.ofFloat("alpha", 0.5f)
+        );
+        viewAnimator.setDuration(100);
+        viewAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        viewAnimator.setRepeatCount(1);
+        viewAnimator.start();
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -173,6 +214,7 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
         int goldCount = settings.getInt(TankActivity.GOLD,0);
         int id = v.getId();
         if (id == R.id.starboat1 || id == R.id.starboat2 || id == R.id.starboat3 || id == R.id.starboat4) {
+            clickAnimate2(starboatCard);
             cost = Integer.parseInt((activity.getResources().getString(R.string.starboat_gold).replace("x", "")));
             if (cost <= goldCount) {
                 int star = settings.getInt(TankActivity.STAR, 0);
@@ -196,6 +238,7 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
             }
         }
         else if (id == R.id.clockshovel1 || id == R.id.clockshovel2 || id == R.id.clockshovel3 || id == R.id.clockshovel4) {
+            clickAnimate2(clockshovelCard);
             cost = Integer.parseInt((activity.getResources().getString(R.string.clockshovel_gold).replace("x", "")));
             if (cost <= goldCount) {
                 int clock = settings.getInt(TankActivity.CLOCK, 0);
@@ -219,6 +262,7 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
             }
         }
         else if (id == R.id.gunhelmet1 || id == R.id.gunhelmet2 || id == R.id.gunhelmet3 || id == R.id.gunhelmet4) {
+            clickAnimate2(gunhelmetCard);
             cost = Integer.parseInt((activity.getResources().getString(R.string.gunhelmet_gold).replace("x", "")));
             if (cost <= goldCount) {
                 int gun = settings.getInt(TankActivity.GUN, 0);
@@ -242,6 +286,7 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
             }
         }
         else if (id == R.id.tankgrenade1 || id == R.id.tankgrenade2 || id == R.id.tankgrenade3 || id == R.id.tankgrenade4) {
+            clickAnimate2(tankgrenadeCard);
             cost = Integer.parseInt((activity.getResources().getString(R.string.tankgrenade_gold).replace("x", "")));
             if (cost <= goldCount) {
                 int tank = settings.getInt(TankActivity.TANK, 0);
@@ -265,6 +310,7 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
             }
         }
         else if (id == R.id.buy_mine || id == R.id.mine1 || id == R.id.mine2 || id == R.id.mine3 || id == R.id.mine4) {
+            clickAnimate2(mineCard);
             cost = Integer.parseInt((activity.getResources().getString(R.string.mine_gold).replace("x", "")));
             if (cost <= goldCount) {
                 int mine = settings.getInt(TankActivity.MINE, 0);
@@ -285,6 +331,7 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
             }
         }
         else if (id == R.id.buy_game || id == R.id.game2 || id == R.id.game3 || id == R.id.game4){
+            clickAnimate2(gameCard);
             int game_count = settings.getInt(TankActivity.RETRY_COUNT, 0);
             if(game_count >= CONST.Tank.MAX_GAME_COUNT) {
                 Toast.makeText(activity, "Games full", Toast.LENGTH_SHORT).show();
@@ -312,6 +359,7 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
             }
         }
         else if (id == R.id.buy_game6 || id == R.id.game62 || id == R.id.game63 || id == R.id.game64){
+            clickAnimate2(game6Card);
             cost = Integer.parseInt(activity.getResources().getString(R.string.game6h_gold).replace("x", ""));
             if (cost <= goldCount) {
                 goldCount -= cost;
@@ -332,6 +380,7 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
 
         }
         else if (id == R.id.buy_goldAd || id == R.id.goldAd2 || id == R.id.goldAd3 || id == R.id.goldAd4){
+            clickAnimate2(adgoldCard);
             cost = Integer.parseInt(activity.getResources().getString(R.string.adCoin).replace("x", ""));
             int coinCount = settings.getInt(TankActivity.AD_COIN,0);
             if (cost <= coinCount) {
@@ -357,35 +406,43 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
             }
         }
         else if (id == R.id.buy_gold || id == R.id.gold2 || id == R.id.gold3){
+            clickAnimate2(goldCard);
 //            ((TankMenuActivity) activity).makePurchase();
-            TransactionManager.getInstnce().makePurchase(activity);
-
+            new Handler().postDelayed(()->{
+                TransactionManager.getInstnce().makePurchase(activity);
+            },300);
         }
 //                else if (id == R.id.stashTxt) {
 //                    // TODO
 //                }
         else if (id == R.id.watchBtn || id == R.id.watchgold) {
-            if (activity instanceof TankActivity) {
-                if (dialog instanceof TankEndGameDialog) {
-                    ((TankActivity) activity).showRewardedVideo(this, (TankEndGameDialog) this.dialog);
-                } else {
-                    ((TankActivity) activity).showRewardedVideo(this);
+            clickAnimate2(watchBtnView);
+            new Handler().postDelayed(()->{
+                if (activity instanceof TankActivity) {
+                    if (dialog instanceof TankEndGameDialog) {
+                        ((TankActivity) activity).showRewardedVideo(this, (TankEndGameDialog) this.dialog);
+                    } else {
+                        ((TankActivity) activity).showRewardedVideo(this);
+                    }
+                } else if (activity instanceof TankMenuActivity) {
+                    ((TankMenuActivity) activity).showRewardedVideo(this);
                 }
-            } else if (activity instanceof TankMenuActivity) {
-                ((TankMenuActivity) activity).showRewardedVideo(this);
-            }
+            },300);
         }
         else if (id == R.id.buyCancelBtn) {
+            clickAnimate1(v);
             SoundManager.playSound(Sounds.TANK.CLICK);
-            if (activity instanceof TankActivity) {
-                ((TankActivity) activity).updateBonusStack();
-                if(mTankView != null) {
-                    ((TankActivity) activity).getTankView().resumeNoAds();
+            new Handler().postDelayed(()->{
+                if (activity instanceof TankActivity) {
+                    ((TankActivity) activity).updateBonusStack();
+                    if(mTankView != null) {
+                        ((TankActivity) activity).getTankView().resumeNoAds();
+                    }
+                } else if (activity instanceof TankMenuActivity) {
+                    ((TankMenuActivity) activity).updateStore();
                 }
-            } else if (activity instanceof TankMenuActivity) {
-                ((TankMenuActivity) activity).updateStore();
-            }
-            dismiss();
+                dismiss();
+            },300);
         }
         updateBonus();
     }
