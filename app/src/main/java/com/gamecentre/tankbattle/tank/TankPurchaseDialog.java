@@ -285,25 +285,31 @@ public class TankPurchaseDialog extends Dialog implements View.OnClickListener, 
             }
         }
         else if (id == R.id.buy_game || id == R.id.game2 || id == R.id.game3 || id == R.id.game4){
-            cost = Integer.parseInt((activity.getResources().getString(R.string.game_gold).replace("x", "")));
-            if (cost <= goldCount) {
-                int game_count = settings.getInt(TankActivity.RETRY_COUNT, 0);
-                int amount = Integer.parseInt((activity.getResources().getString(R.string.game_count).replace("x", "")));
-                 game_count += amount;
-
-                goldCount -= cost;
-                goldTxt.setText(String.format("%s", goldCount));
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putInt(TankActivity.RETRY_COUNT, game_count);
-                editor.putInt(TankActivity.GOLD, goldCount);
-                editor.apply();
-                SoundManager.playSound(Sounds.TANK.BUY_ITEM);
-            } else {
-                // TODO Not enough gold
+            int game_count = settings.getInt(TankActivity.RETRY_COUNT, 0);
+            if(game_count >= CONST.Tank.MAX_GAME_COUNT) {
+                Toast.makeText(activity, "Games full", Toast.LENGTH_SHORT).show();
                 SoundManager.playSound(Sounds.TANK.CLICK2);
-                Log.d("PURCHASE TANKGRENADE", "Not enough gold");
             }
+            else {
+                cost = Integer.parseInt((activity.getResources().getString(R.string.game_gold).replace("x", "")));
+                if (cost <= goldCount) {
+//                int game_count = settings.getInt(TankActivity.RETRY_COUNT, 0);
+                    int amount = Integer.parseInt((activity.getResources().getString(R.string.game_count).replace("x", "")));
+                    game_count += amount;
 
+                    goldCount -= cost;
+                    goldTxt.setText(String.format("%s", goldCount));
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putInt(TankActivity.RETRY_COUNT, game_count);
+                    editor.putInt(TankActivity.GOLD, goldCount);
+                    editor.apply();
+                    SoundManager.playSound(Sounds.TANK.BUY_ITEM);
+                } else {
+                    // TODO Not enough gold
+                    SoundManager.playSound(Sounds.TANK.CLICK2);
+                    Log.d("PURCHASE TANKGRENADE", "Not enough gold");
+                }
+            }
         }
         else if (id == R.id.buy_game6 || id == R.id.game62 || id == R.id.game63 || id == R.id.game64){
             cost = Integer.parseInt(activity.getResources().getString(R.string.game6h_gold).replace("x", ""));
