@@ -107,6 +107,7 @@ public class TankActivity extends AppCompatActivity implements View.OnTouchListe
             GOLD_LEVEL = "GOLD_LEVEL",
             AD_COIN = "AD_COIN",
 
+            FIRST_TIME = "FIRST_TIME",
             LAST_DAY = "LAST_DAY",
             CONSECUTIVE_DAYS = "CONSECUTIVE_DAYS",
 

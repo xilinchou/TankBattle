@@ -174,7 +174,7 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
 
         int newDay = checkNewDay();
         Log.d("DATE CHECK", String.valueOf(newDay));
-        if(newDay > 0 && firstTime){
+        if (newDay > 0) {
             openReward(newDay);
         }
 
@@ -285,11 +285,19 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
 //        }
 //        long epoch = date.getTime();
 
+        boolean first_time = settings.getBoolean(TankActivity.FIRST_TIME,true);
+
 
         long newDay;
         int numDays = 0;
-        long lastDay = settings.getLong(TankActivity.LAST_DAY,0);
+        long lastDay;
         long currentDay = (long) (System.currentTimeMillis() / 86400000);
+        if(first_time) {
+            lastDay = currentDay;
+        }
+        else {
+            lastDay = settings.getLong(TankActivity.LAST_DAY,0);
+        }
 //        long currentDay = (long) (epoch / 86400000);
 
         newDay = currentDay - lastDay;
@@ -312,6 +320,7 @@ public class TankMenuActivity extends AppCompatActivity implements WifiDialogLis
         SharedPreferences.Editor editor = settings.edit();
         editor.putLong(TankActivity.LAST_DAY,currentDay);
         editor.putInt(TankActivity.CONSECUTIVE_DAYS,numDays);
+        editor.putBoolean(TankActivity.FIRST_TIME,false);
         editor.apply();
 
         return numDays;

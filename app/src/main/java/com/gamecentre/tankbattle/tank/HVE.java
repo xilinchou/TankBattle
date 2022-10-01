@@ -161,12 +161,14 @@ public class HVE extends Enemy{
             return false;
         }
         bombID = id;
-        boostShield -= 5;
+//        boostShield -= 5;
+        reduceShiled(5);
         if(boostShield <= 0) {
             svrKill = TankView.twoPlayers && WifiDirectManager.getInstance().isServer();
             setDestroyed();
+            return true;
         }
-        return true;
+        return false;
     }
 
     public int getShiled() {
