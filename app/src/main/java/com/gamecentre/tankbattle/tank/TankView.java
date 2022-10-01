@@ -2099,7 +2099,12 @@ public class TankView extends View implements RemoteMessageListener, ButtonListe
         if(HVE.IS_AVAILABLE) {
             for (Enemy e : Enemies) {
                 if (e instanceof HVE && !((HVE) e).hasTarget()) {
-                    ((HVE) e).getView(P1);
+                    if(twoPlayers) {
+                        ((HVE) e).getView(P1,P2);
+                    }
+                    else{
+                        ((HVE) e).getView(P1);
+                    }
                 }
             }
         }

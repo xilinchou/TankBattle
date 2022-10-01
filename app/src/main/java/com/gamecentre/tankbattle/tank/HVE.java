@@ -17,7 +17,7 @@ public class HVE extends Enemy{
     private  int frame_time = 7;
     private final int MAX_LIFE = 20;
     private int boostShield = MAX_LIFE;
-    private ArrayList<Point> hView;
+    private ArrayList<Point> hView1, hView2;
     private boolean spawned = false;
     int view_frame_delay;
     int view_frame_time = 8;
@@ -186,8 +186,8 @@ public class HVE extends Enemy{
         return boostShield;
     }
 
-    public void getView(Player p) {
-        hView = new ArrayList<>();
+    public ArrayList<Point> getPlayerView(Player p) {
+        ArrayList<Point> hView = new ArrayList<>();
         int px, py;
         int D = (int)Math.sqrt(Math.pow(p.y - y,2) + Math.pow(p.x - x,2));
         double angle = Math.atan2(p.y - y, p.x - x);
@@ -200,10 +200,20 @@ public class HVE extends Enemy{
             hView.add(new Point(px,py));
             d += tile_x;
         }
+        return hView;
+    }
 
+    public void getView(Player p) {
+        hView1 = getPlayerView(p);
         gotTarget = true;
         viewing = true;
+    }
 
+    public void getView(Player p1, Player p2) {
+        hView1 = getPlayerView(p1);
+        hView2 = getPlayerView(p2);
+        gotTarget = true;
+        viewing = true;
     }
 
     public static boolean isViewing() {
@@ -262,8 +272,25 @@ public class HVE extends Enemy{
             }
 
             if(spawned) {
-                for(int i = 0; i < hView.size(); i++) {
-                    canvas.drawCircle(hView.get(i).x,hView.get(i).y,2,vPaint);
+                int len = 0;
+                if(TankView.twoPlayers) {
+                    len = Math.max(hView1.size(),hView2.size());
+                }
+                else {
+                    len = hView1.size();
+                }
+                for(int i = 0; i < len; i++) {
+                    if(TankView.twoPlayers) {
+                        if(i < hView1.size()) {
+                            canvas.drawCircle(hView1.get(i).x, hView1.get(i).y, 2, vPaint);
+                        }
+                        if(i < hView2.size()) {
+                            canvas.drawCircle(hView2.get(i).x, hView2.get(i).y, 2, vPaint);
+                        }
+                    }
+                    else {
+                        canvas.drawCircle(hView1.get(i).x, hView1.get(i).y, 2, vPaint);
+                    }
                     if(i == view_frame) {
                         break;
                     }
@@ -275,7 +302,7 @@ public class HVE extends Enemy{
                 else {
                     --view_frame_delay;
                 }
-                if(view_frame >= hView.size()) {
+                if(view_frame >= len) {
                     spawned = false;
                     viewing = false;
                 }
